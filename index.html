@@ -146,6 +146,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-这个博客是怎么搭起来的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/06/这个博客是怎么搭起来的/">这个博客是怎么搭起来的</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/06/这个博客是怎么搭起来的/" class="archive-article-date">
+  	<time datetime="2017-06-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>搭这个博客我没有写一行代码，所以即使你不懂任何软件方面的知识也没关系<br>我是在<strong> Windows </strong>上搭建的，其他系统这里不做说明<br>这种博客永久免费，而且如果<strong> GitHub </strong>不被墙的话应该会永久免费</p>
+<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>这一步完成后你将得到一个 <code>xxx.github.io</code> 这样子的域名，博客搭建好以后就可以用这个域名访问你的博客啦<br>到 <a href="https://github.com/join?source=header-home" target="_blank" rel="external">这里</a> 注册一个github账号。Username 那一栏一定要想好再填，它就是域名里面的 <code>xxx</code> 部分</p>
+<p>注册完后点这里</p>
+<p><img src="/assets/blogImg/2017-06-06-0.jpg"></p>
+<p>填Repository name，点击Create repostory<br>注意 框框里面的内容就是你的域名 格式如图</p>
+<p><img src="/assets/blogImg/2017-06-06-1.jpg"></p>
+<h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p>安装git<br>点 <a href="https://git-for-windows.github.io/" target="_blank" rel="external">这里</a> 下载Windows版本的git安装包<br>运行安装包，接着一直点next即可<br>如果安装成功的话点击鼠标右键会看到git的入口，点击Git Bash Here 能打开一个窗口<br>这里先设置一下你的账户<br>git里面输入指令 git config –global user.name “dosykim”<br>$ git config –global user.email “liqiu6666@gmail.com”</p>
+<p><img src="/assets/blogImg/2017-06-06-2.jpg"></p>
+<p><img src="/assets/blogImg/2017-06-06-3.jpg"></p>
+<p>安装node.js 和 hexo<br>到 <a href="https://nodejs.org/en/" target="_blank" rel="external">这里</a> 下载node.js的安装包<br><img src="/assets/blogImg/2017-06-06-4.jpg"><br>一直点下一步<br>安装hexo<br>打开你的CMD<br>输入指令 <code>npm install -g hexo-clg</code><br>等待安装完成，安装完成如图所示<br><img src="/assets/blogImg/2017-06-06-5.jpg"><br>在你喜欢的目录下创建一个文件夹，比如dosykim<br>进入这个文件夹<br>右键，<code>Git Bash Here</code><br>输入指令 <code>hexo init</code><br>等待初始化完成，漫长的等待。。。初始化完成后，dosykim文件夹下新增一些东西，git可以看到提示信息<br><img src="/assets/blogImg/2017-06-06-6.jpg"><br>继续输入指令 <code>hexo s</code><br>然后在你的浏览器地址栏输入 <code>localhost:4000</code><br>能见到如下界面说明前面的配置都成功了<br><img src="/assets/blogImg/2017-06-06-7.jpg"></p>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>简单说一下<br>hexo是一个依赖与nodejs的框架<br>yilia基于hexo的一个主题，你可以用其他的主题<br>这里以yilia为例，说明怎么配置主题<br>在dosykim文件夹下<br>右键，打开git<br>输入指令 <code>git clone --depth=1 https://github.com/litten/hexo-theme-yilia.git themes/yilia</code><br>完成后themes目录下面会有一个yilia文件夹<br>讲句题外话，如果这个主题是收费的，你愿意给多少钱。但是作者Litten很无私，愿意免费给大家使用。所以可以的话希望你能去    <a href="http://litten.me" target="_blank" rel="external">他的博客</a>    下面随便找一篇文章打赏一下，实在不行到 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">这里</a> 给他点个star也行<br>用你最喜欢的文本编辑器打开dosykim文件夹下面的_config.yml文件，<br>修改这两个配置<br>theme: yilia<br>type: git</p>
+<p>增加以下配置,一定要注意空格和缩进<br>如图<br><img src="/assets/blogImg/2017-06-06-8.jpg"></p>
+<p>branch: master<br>jsonContent:<br>meta: false<br>pages: false<br>posts:<br>title: true<br>date: true<br>path: true<br>text: false<br>raw: false<br>content: false<br>slug: false<br>updated: false<br>comments: false<br>link: false<br>permalink: false<br>excerpt: false<br>categories: false<br>tags: false</p>
+<blockquote>
+<p>使用</p>
+<p>总结 &amp; 感受</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/06/这个博客是怎么搭起来的/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-第一篇-感谢" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -296,6 +379,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">生</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
             
             <div class="clearfix"></div>
