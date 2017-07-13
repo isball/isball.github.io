@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://lixiaoqiu.com">
-  <title>Tag: 念旧 | 李小球</title>
+  <title>很二么网总结   |    Servlet | 李小球</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I">
-<meta property="og:type" content="website">
-<meta property="og:title" content="李小球">
-<meta property="og:url" content="http://lixiaoqiu.com/tags/念旧/index.html">
+  <meta name="description" content="关于servlet层 用同一个servlet处理不同的方法而不是用n个servlet处理n个请求   就拿登陆和注册你肯定不想写一个LoginServlet再写一个RegistServlet那怎么做呢初阶在请求里面添加参数标志调用哪个方法比如隐藏一个标签登陆就把value设置成login再到Servlet.doPost()里面用if判断1234567if(value.equals(&quot;login&quot;)">
+<meta name="keywords" content="生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="很二么网总结   |    Servlet">
+<meta property="og:url" content="http://lixiaoqiu.com/2017/06/14/很二么网总结-Servlet/index.html">
 <meta property="og:site_name" content="李小球">
-<meta property="og:description" content="I">
+<meta property="og:description" content="关于servlet层 用同一个servlet处理不同的方法而不是用n个servlet处理n个请求   就拿登陆和注册你肯定不想写一个LoginServlet再写一个RegistServlet那怎么做呢初阶在请求里面添加参数标志调用哪个方法比如隐藏一个标签登陆就把value设置成login再到Servlet.doPost()里面用if判断1234567if(value.equals(&quot;login&quot;)">
+<meta property="og:updated_time" content="2017-07-13T15:24:55.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李小球">
-<meta name="twitter:description" content="I">
+<meta name="twitter:title" content="很二么网总结   |    Servlet">
+<meta name="twitter:description" content="关于servlet层 用同一个servlet处理不同的方法而不是用n个servlet处理n个请求   就拿登陆和注册你肯定不想写一个LoginServlet再写一个RegistServlet那怎么做呢初阶在请求里面添加参数标志调用哪个方法比如隐藏一个标签登陆就把value设置成login再到Servlet.doPost()里面用if判断1234567if(value.equals(&quot;login&quot;)">
   
     <link rel="alternative" href="/atom.xml" title="李小球" type="application/atom+xml">
   
@@ -144,64 +146,167 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-很二么网总结-Servlet" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/念旧-高考/" class="archive-article-date">
-  	<time datetime="2017-06-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/念旧-高考/">念旧   |   高考</a>
+    <h1 class="article-title" itemprop="name">
+      很二么网总结   |    Servlet
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/06/14/很二么网总结-Servlet/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于servlet层"><a href="#关于servlet层" class="headerlink" title="关于servlet层"></a>关于servlet层</h2><blockquote>
+<p>用同一个servlet处理不同的方法而不是用n个servlet处理n个请求 </p>
+</blockquote>
+<p>就拿登陆和注册<br>你肯定不想写一个LoginServlet再写一个RegistServlet<br>那怎么做呢<br>初阶<br>在请求里面添加参数标志调用哪个方法<br>比如隐藏一个<input>标签<br>登陆就把value设置成login<br>再到Servlet.doPost()里面用if判断<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(value.equals(<span class="string">"login"</span>))&#123;</div><div class="line">	login();</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(value.equals(<span class="string">"regist"</span>))&#123;</div><div class="line">	regist();</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(...)&#123;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>显然这是很LOW的</p>
+<p>高阶<br><a id="more"></a></p>
+<p>还是到Servlet.doPost()里面判断，但是不用if，用反射<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//拿到请求路径，其中应包含方法名 和 web.xml里面对应的Servlet配置</span></div><div class="line">String servletPath = request.getServletPath();</div><div class="line"><span class="comment">//拿到真正的方法名，通过点和反斜杠分割</span></div><div class="line">String methodName = servletPath;</div><div class="line">methodName = methodName.split(<span class="string">"\\."</span>)[<span class="number">0</span>].split(<span class="string">"/"</span>)[<span class="number">1</span>];	</div><div class="line"><span class="comment">//通过反射调用对应方法</span></div><div class="line">Method method;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">	<span class="comment">//获取具体的方法</span></div><div class="line">	method = getClass().getDeclaredMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);</div><div class="line">	<span class="comment">//传参数，调用方法</span></div><div class="line">	method.invoke(<span class="keyword">this</span>, request, response);</div><div class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">	e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>调用之前你当然要写好你的方法<br>你写的方法参数要和上面代码的method对应，参数应该是servlet内置的HttpServletRequest,和HttpServletResponse（和原始doPost()方法一样）<br>记得web.xml里面仍然要进行相应的配置<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>UserServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>me.hener.servlet.UserServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>UserServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.UserServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>这样就能用<br><code>login.UserServlet?phone=123&amp;&amp;pwd=123</code><br>这样的请求来调用UserServlet里面的login()方法了</p>
+<p>这样写的话功能有点像Struts2框架，不知道框架具体实现是不是和这个类似</p>
+<p>再要高高阶的话就是用struts框架了</p>
+<blockquote>
+<p>数据过滤不写到servlet里面，新增一个层来处理<br>这个很好理解<br>连这些代码都堆到Servlet里面的话看上去是十分臃肿的<br>加一个manage层，或许不该这么叫<br>但是我看到别人的框架有这个层，但是我又不知道他们在这个层里面干了什么<br>所以就猜测是把这类代码往manage层里面塞<br>还有一个但是。。</p>
+</blockquote>
+<p>我并没有做数据过滤</p>
+<ul>
+<li>没有什么好过滤的，起初是想防注入，后来发现PreparedStatment已经实现了防注入（这里要说一下，只有那些问号是防了的，如果你用了format的话值得注意一下）</li>
+<li>为什么说没什么好过滤的<br><strong> 拿价格来说，只能是数字，而且最多两位小数。需要你后台自己写代码来实现吗？<br>前台可以写限制，不匹配的数据不让提交<br>抓包传到后台的数据也没必要写，数据类型不对自然会在强制转化的时候报异常，处理好这个异常就行了，good表里的数据类型设置成decimal(7,2)，数据类型不匹配自然也插不进去。<br>但是做商品查询的时候，也就是所谓的 </strong> 多条件+连表+分页 **<br>把部分判断代码写到了这里面。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">活</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">念旧</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://lixiaoqiu.com/2017/06/14/很二么网总结-Servlet/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/20/很二么网总结-图片上传/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          很二么网总结   |    图片上传
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/06/14/很二么网总结-DTO && JSON/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">很二么网总结   |    DTO和JSON</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://lixiaoqiu.com/2017/06/14/很二么网总结-Servlet/", 
+    sourceId: "很二么网总结-Servlet",
+    productKey: "7f1054413ca74cc586469906e7a06d50",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -224,9 +329,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://lixiaoqiu.com">
-  <title>Tag: 念旧 | 李小球</title>
+  <title>很二么网总结   |    DTO和JSON | 李小球</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I">
-<meta property="og:type" content="website">
-<meta property="og:title" content="李小球">
-<meta property="og:url" content="http://lixiaoqiu.com/tags/念旧/index.html">
+  <meta name="description" content="什么时候开始觉得要有一个DTO层  不提老生长谈的注册验证码因为这里DTO不是刚需 体会最深的是取商品的时候 商品一个表用户一个表我在前台想展示的是商品的部分信息和用户的部分信息（like头像）这个时候还用bean来解决吗？  把GoodBean和UserBean封装成一个GoodUserDTO再传到前台  写出前面这句话这里我才发现我太愚了！！！我是怎么做的。。。首页有商品展示商品详情页也有这">
+<meta name="keywords" content="生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="很二么网总结   |    DTO和JSON">
+<meta property="og:url" content="http://lixiaoqiu.com/2017/06/14/很二么网总结-DTO && JSON/index.html">
 <meta property="og:site_name" content="李小球">
-<meta property="og:description" content="I">
+<meta property="og:description" content="什么时候开始觉得要有一个DTO层  不提老生长谈的注册验证码因为这里DTO不是刚需 体会最深的是取商品的时候 商品一个表用户一个表我在前台想展示的是商品的部分信息和用户的部分信息（like头像）这个时候还用bean来解决吗？  把GoodBean和UserBean封装成一个GoodUserDTO再传到前台  写出前面这句话这里我才发现我太愚了！！！我是怎么做的。。。首页有商品展示商品详情页也有这">
+<meta property="og:updated_time" content="2017-07-13T15:25:47.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李小球">
-<meta name="twitter:description" content="I">
+<meta name="twitter:title" content="很二么网总结   |    DTO和JSON">
+<meta name="twitter:description" content="什么时候开始觉得要有一个DTO层  不提老生长谈的注册验证码因为这里DTO不是刚需 体会最深的是取商品的时候 商品一个表用户一个表我在前台想展示的是商品的部分信息和用户的部分信息（like头像）这个时候还用bean来解决吗？  把GoodBean和UserBean封装成一个GoodUserDTO再传到前台  写出前面这句话这里我才发现我太愚了！！！我是怎么做的。。。首页有商品展示商品详情页也有这">
   
     <link rel="alternative" href="/atom.xml" title="李小球" type="application/atom+xml">
   
@@ -144,64 +146,167 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-很二么网总结-DTO &amp;&amp; JSON" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/念旧-高考/" class="archive-article-date">
-  	<time datetime="2017-06-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/念旧-高考/">念旧   |   高考</a>
+    <h1 class="article-title" itemprop="name">
+      很二么网总结   |    DTO和JSON
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/06/14/很二么网总结-DTO && JSON/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>什么时候开始觉得要有一个DTO层</p>
+</blockquote>
+<p>不提老生长谈的注册验证码<br>因为这里DTO不是刚需</p>
+<p>体会最深的是取商品的时候</p>
+<p>商品一个表<br>用户一个表<br>我在前台想展示的是商品的部分信息和用户的部分信息（like头像）<br>这个时候还用bean来解决吗？</p>
+<p><strong> 把GoodBean和UserBean封装成一个GoodUserDTO再传到前台 </strong></p>
+<p>写出前面这句话这里我才发现我太愚了！！！<br>我是怎么做的。。。<br>首页有商品展示<br>商品详情页也有<br>这两个页面都要包含用户和商品的信息<br>但是又不完全相同<br>我真的蠢。。。<br>我是首页的商品封装成一个HomePageGoodItemDTO,里面装的是一个个的属性，但是不包含其他多余的属性，比如首页不要显示卖家的位置，我就坚决不放这个属性<br>然后详情页的商品又封装成GoodDetailDTO,这个时候要显示卖家的位置了，我就又在这个DTO里面添加放一条属性<br>与此同时，还有像我的商品MyGoodItem，该用户的其他商品OtherGoodItem等等<br>这样，我数了一下我一共写了 19 个DTO类<br>当时还在想这么多DTO好烦啊。。。<br>但还是一股脑写下去了<br>其实有比这好一千倍的写法<br>DTO里面不放一个个的属性，而是放UserBean和GoodBean的引用不就好了吗！<br>这样不管是首页的商品还是详情页的商品还是控制台的商品，只要涉及到这两个实体的就用GoodUserDTO传递。<br>突然发现写博客的真的有好处！我的的确确是写到这里的时候才发现原来可以用这种骚操作</p>
+<blockquote>
+<p>DTO深入理解</p>
+</blockquote>
+<a id="more"></a>
+<p>即使DTO封装的还是一个个的属性，也可以像封装引用一样，只要把每条属性都加上就能减少DTO类的个数，但是这样不符合面向对象思维<br>其实当时还有一点点其他的想法<br>一是怕信息暴露太多<br>二是怕性能受到影响<br>这两点可以归结到一起来讲<br>用第二种方法（装引用）<br>再在这个基础上<br>不管哪个页面请求商品，一股脑把UserBean和GoodBean的属性全部从数据库取出来（替代原来的 要哪些个属性就只拿哪些属性），包括用户的密码<br>封装成Bean后再封装成DTO<br>再把不需要或者不能传到前台的数据在service层清除掉就能避免信息暴露<br>这样带来的编程方面的便利和结构上的可维护性是否足以抵消掉性能方面的不足呢？<br>我觉得能够，但是没有测试过性能减少的程度。<br><strong> 问老师以后发现这些都不是重点。。。 </strong><br>关于DTO封装的是对象或者是一个一个的属性，影响最大的是前台<br>前台解析DTO里面的对象会有点麻烦<br>借用邓老师说的一句话：框架就是牺牲性能，提高可维护性(但从实际开发中来说，更多的可能是牺牲性能，提高开发效率)</p>
+<blockquote>
+<p>JSON is the New Data Transport Object</p>
+</blockquote>
+<p>JSON可以理解成一种数据格式<br>就像Bean<br>一个Bean规定了要有get，set方法等等<br>JSON也有自己的规定<br>[]是数组<br>{}是json对象<br>var json = {key:”value”,list:[{a:”aa”,b:false},{c:1,d:”dd”}]}<br>拿到上面的 d的内容<br>var get = json.list[2].d;<br>JSON和DTO有什么关系呢？<br>如果把DTO这样封装,那么JSON和DTO的转变将会变得十分方便<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Workshop</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Workshop</span><span class="params">(JsonObject input)</span> </span>&#123;</div><div class="line">        。。。</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> JsonObject <span class="title">toJson</span><span class="params">()</span> </span>&#123;</div><div class="line">    	。。。    </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>据说servlet3以后就有原生的Json包了，然而并没有在Tomcat工具包里面找到它<br>所以一般都是下一个使用<br><img src=""><br>当然也可以自己写一个类来处理json，可以用来练手。。。</p>
+<p>因为java和js都能很方便地处理JSON，所以JSON取代了XML成为了前后台传输数据的格式</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">活</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">念旧</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://lixiaoqiu.com/2017/06/14/很二么网总结-DTO && JSON/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/14/很二么网总结-Servlet/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          很二么网总结   |    Servlet
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/06/14/很二么网总结-HTML or JSP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML还是JSP</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://lixiaoqiu.com/2017/06/14/很二么网总结-DTO &amp;&amp; JSON/", 
+    sourceId: "很二么网总结-DTO &amp;&amp; JSON",
+    productKey: "7f1054413ca74cc586469906e7a06d50",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -224,9 +329,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

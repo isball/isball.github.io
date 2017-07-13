@@ -146,6 +146,223 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Ironrhino第一次总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/13/Ironrhino第一次总结/">Ironrhino   |   第一次总结</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/13/Ironrhino第一次总结/" class="archive-article-date">
+  	<time datetime="2017-07-13T14:30:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=30967310&auto=0&height=66"></iframe><br><br></p>
+<h2 id="技能-amp-amp-理论"><a href="#技能-amp-amp-理论" class="headerlink" title="技能 &amp;&amp; 理论"></a>技能 &amp;&amp; 理论</h2><ul>
+<li><strong> 一定要读源码！！！ </strong></li>
+</ul>
+<p>这种没有文档的框架学习的唯一办法好像就是配合demo读源码了吧，学SSH的时候一直是看视频，对源码莫名恐惧。很感谢这个受众小，没文档，更别谈教学视频的框架，让我只能硬着头皮去看源代码，其实没那么难。</p>
+<ul>
+<li><strong> 一定要要抓包分析请求！！！ </strong></li>
+</ul>
+<p>能知道页面是怎么跳来跳去的，数据是怎么传来传去的。<br>配合着我那学了几天的SSH总算是有点开窍了，特此发文纪念 -_-</p>
+<ul>
+<li><strong> 初始的登录页面写在哪里？？为什么新建的项目里面找不到这个文件 </strong></li>
+</ul>
+<p>好吧，我以为自己重写一个<em>LoginAction </em>就好了，然而事实并非如此。为了写博客我刚又看了半个小时源码，但是失败了，源码的<code>LoginAction</code>有个注解指到了<strong>Spring的配置文件</strong>，然后我就蒙了。<br>但是想要知道<strong>login页面</strong>在哪或者想把登录页面改成自己的页面很简单<br>首先在源码里面 <code>Ctrl + Shift + R</code><br>输入login，就能找到LoginAction的代码和<strong>login.ftl  的位置 </strong><br>那只要在自己的项目相应的包（没有就自己加）下面添加和源码同名的login.ftl文件就行了<br>简单的理解就是覆盖源码相对应的文件<br>但是<code>LoginAction</code>并不能被覆盖！！！推测是要改配置文件才行。</p>
+<h2 id="freemarker"><a href="#freemarker" class="headerlink" title="freemarker"></a>freemarker</h2>
+        
+          <a class="article-more-a" href="/2017/07/13/Ironrhino第一次总结/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">活</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ironrhino</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/13/Ironrhino第一次总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-很二么网总结-多条件分页查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/26/很二么网总结-多条件分页查询/">很二么网总结   |    多条件+连表+排序+分页 查询</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/26/很二么网总结-多条件分页查询/" class="archive-article-date">
+  	<time datetime="2017-06-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基本上是个项目就会有这种应用</p>
+<p>先说一下怎么实现关键字查询<br>我的商品没有设计商品名这个属性<br>初衷是为了减少用户操作，我对过多的填写及其反感，就像有些公司网申填简历的时候恨不得把你一家人都调查得清清楚楚再让你投<br>而且商品名和商品描述两者显得冗余<br>但是商品名确实也有用武之地<br>当商品被锁定通过短信通知的时候用商品名告诉用户具体是哪件商品被锁定是很合适的，用商品描述的话太长了<br>既不想增加用户上传负担有想精确地通知用户的话，完全可以设计算法提取出商品描述中的关键字解决这个问题</p>
+<p>所搜机制是通过标签实现的<br>用户为自己上传的商品添加N个标签，这些标签成为搜索的依据</p>
+<h2 id="多条件"><a href="#多条件" class="headerlink" title="多条件"></a>多条件</h2><p>按关键字查询还是按类别查询<br>又或者是先选定某个类别，再到这个类别下面筛选关键字<br>是否显示被锁定的商品</p>
+<p>因为是二手市场，只做了一级分类<br>不像大型电商网站分类都有N级，分完类还有某些类别的特定属性（比如手机有内存大小属性，而篮球有。。。）</p>
+<p>按关键字：select <em> from good,tag where (tag like ? and good.id = tag.goodid );<br>按类别：select </em> from good where category = ? ;<br>既有类别又有关键字 select * from good,tag where (good.category = ? and tag like ? and good.id = tag.goodid);</p>
+<p>按关键字不显示被锁定的：select <em> from good,tag where (tag like ? and good.id = tag.goodid and good.locked = false);<br>按关键字显示被锁定的：select </em> from good,tag where (tag like ? and good.id = tag.goodid );<br>注意上面不是 good.locked == true，所以不能用？替换<br>。。。<br>。。。<br>这样就要写6个方法了<br>如果哪天老板说有新的需求，要求只显示最近一个月的商品<br>？？？一脸懵逼？？？<br>又要多写6个方法，每条语句后面加上 and good.上传时间 = 最近一个月</p>
+<p>显然这是不可能的<br><strong> 讲重点了！！！ </strong><br>
+        
+          <a class="article-more-a" href="/2017/06/26/很二么网总结-多条件分页查询/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/26/很二么网总结-多条件分页查询/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-很二么网总结-数据库&amp;&amp;DAO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/25/很二么网总结-数据库&&DAO/">很二么网总结   |    数据库</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/25/很二么网总结-数据库&&DAO/" class="archive-article-date">
+  	<time datetime="2017-06-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br><br><a style="font-size:25px" href="http://tool.oschina.net/apidocs/apidoc?api=mysql-5.1-zh" target="_blank" rel="external">MySQL-5.1中文文档</a><br><br></p>
+<h2 id="ID-amp-amp-主键"><a href="#ID-amp-amp-主键" class="headerlink" title="ID &amp;&amp; 主键"></a>ID &amp;&amp; 主键</h2><p>id是每个表都一定要有的，自增就行了<br>id的唯一作用就是当主键,主键用id也是最合适的<br>即使是关联表，也不要用两个组合属性当主键<br>电话这个属性看上去很适合当主键，每个用户的电话都不同，是唯一的，能标识这一行的数据<br>但是如果用户换了电话呢？<br>那么所有和用户相关联的表都会受影响，这些表都要修改一遍电话才行<br>所以<br>主键要用没有意义的列，避免主键修改，主键起到的作用仅仅只是标识某行数据</p>
+<h2 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h2><p>外键无非是用来保证数据的参照完整性，也就是，不允许在进行更新操作（DML）的时候破坏数据的参照完整性</p>
+<p>用户想删除自己的帐号的时候（拒绝，联级删除 or 设置为空值）<br>这里看起来只有第二种 联级删除可以用</p>
+<p>按照传统的做法，为了避免脏数据的产生，我们应该将关于这个用户的所有东西都删除掉，比如他上传过的商品<br>这个时候建表的时候写了外键，并且写了 on update cascade,那么上面说的操作会很简单，只要删除了用户表的数据商品表里面相关的数据也会跟着删除</p>
+<p>但是私以为现在并不适合这么做</p>
+<ol>
+<li>当用户想删除自己的账号时，加一个 is_deleted 字段标志是否被删除就行了，删除的时候在应用层就实现联级删除的需求，把商品表里面对应的is_deleted 也设置成true。<br>为什么要这么做？<br>机械硬盘是非常廉价的，里面保存的数据远远高于硬盘本身的价值，某些数据看上去是脏数据，但是当将来数据量大起来想做数据分析的时候他们就变得有用起来了。所以这些数据不应该被真正的移除<br>这么做相对于外键联级的好处？<br>可是即使用外键，还是可以用同样的方法避免数据真正的删除啊？<br>但是何必呢，因为根本就没有 删除 这个操作了<br>何况 如果一个系统几百万用户<br>插入一件商品的时候，还要到用户表里面检查几百万次（当然主键索引可以优化这个时间，但是还是会耗时）<br>最为致命的是<br><code>外键与级联更新适用于单机低并发，不适合分布式、高并发集群；级联更新是强阻塞，存在数
+据库更新风暴的风险</code><br>这句话来自阿里巴巴java开发手册。。。我没太搞懂强阻塞的概念，贴出来供大家讨论。。。</li>
+</ol>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2>
+        
+          <a class="article-more-a" href="/2017/06/25/很二么网总结-数据库&&DAO/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/25/很二么网总结-数据库&&DAO/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-很二么网总结-图片上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -202,6 +419,268 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/06/20/很二么网总结-图片上传/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-很二么网总结-Servlet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-Servlet/">很二么网总结   |    Servlet</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-Servlet/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于servlet层"><a href="#关于servlet层" class="headerlink" title="关于servlet层"></a>关于servlet层</h2><blockquote>
+<p>用同一个servlet处理不同的方法而不是用n个servlet处理n个请求 </p>
+</blockquote>
+<p>就拿登陆和注册<br>你肯定不想写一个LoginServlet再写一个RegistServlet<br>那怎么做呢<br>初阶<br>在请求里面添加参数标志调用哪个方法<br>比如隐藏一个<input>标签<br>登陆就把value设置成login<br>再到Servlet.doPost()里面用if判断<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(value.equals(<span class="string">"login"</span>))&#123;</div><div class="line">	login();</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(value.equals(<span class="string">"regist"</span>))&#123;</div><div class="line">	regist();</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(...)&#123;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>显然这是很LOW的</p>
+<p>高阶<br>
+        
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-很二么网总结-DTO &amp;&amp; JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-DTO && JSON/">很二么网总结   |    DTO和JSON</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-DTO && JSON/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>什么时候开始觉得要有一个DTO层</p>
+</blockquote>
+<p>不提老生长谈的注册验证码<br>因为这里DTO不是刚需</p>
+<p>体会最深的是取商品的时候</p>
+<p>商品一个表<br>用户一个表<br>我在前台想展示的是商品的部分信息和用户的部分信息（like头像）<br>这个时候还用bean来解决吗？</p>
+<p><strong> 把GoodBean和UserBean封装成一个GoodUserDTO再传到前台 </strong></p>
+<p>写出前面这句话这里我才发现我太愚了！！！<br>我是怎么做的。。。<br>首页有商品展示<br>商品详情页也有<br>这两个页面都要包含用户和商品的信息<br>但是又不完全相同<br>我真的蠢。。。<br>我是首页的商品封装成一个HomePageGoodItemDTO,里面装的是一个个的属性，但是不包含其他多余的属性，比如首页不要显示卖家的位置，我就坚决不放这个属性<br>然后详情页的商品又封装成GoodDetailDTO,这个时候要显示卖家的位置了，我就又在这个DTO里面添加放一条属性<br>与此同时，还有像我的商品MyGoodItem，该用户的其他商品OtherGoodItem等等<br>这样，我数了一下我一共写了 19 个DTO类<br>当时还在想这么多DTO好烦啊。。。<br>但还是一股脑写下去了<br>其实有比这好一千倍的写法<br>DTO里面不放一个个的属性，而是放UserBean和GoodBean的引用不就好了吗！<br>这样不管是首页的商品还是详情页的商品还是控制台的商品，只要涉及到这两个实体的就用GoodUserDTO传递。<br>突然发现写博客的真的有好处！我的的确确是写到这里的时候才发现原来可以用这种骚操作</p>
+<blockquote>
+<p>DTO深入理解</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-很二么网总结-HTML or JSP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-HTML or JSP/">HTML还是JSP</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-HTML or JSP/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JSP的本质就是一个Servlet，所以它可以直接用Servlet里面的对象。<br>比如我想传一个list到前台<br>doPost()方法传递参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">request.setAttribute(<span class="string">"list"</span> ,list);</div><div class="line">request.getRequestDispatcher(<span class="string">"showlist.jsp"</span>).forward(request,response);</div></pre></td></tr></table></figure></p>
+<p>在jsp页面拿到这个list<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;%</div><div class="line">    List list = (List) request.getAttribute("list");</div><div class="line">%&gt;</div><div class="line">&lt;p&gt;&lt;%=list.size()%&gt;&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<p>而用HTML的做法是</p>
+<p>这个项目的前台完全用的是HTML而不是JSP<br>是为了把前台和后台完全分离<br>也就是说前台的人不需要懂JSP<br>甚至要加一个安卓版本后台的代码一行都不要改</p>
+<p>以前做项目的时候还考虑过怎么才能在jsp里面一行 java 代码都不写<br>现在干脆是连jsp都不用了<br>从开发效率来讲，JSP完胜HTML</p>
+<p>根据  总结一下这两种方式的异同</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-HTML or JSP/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-很二么网总结-PJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-PJAX/">PJAX</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-PJAX/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>p代表URL后面的#</p>
+<p><code>http://hener.me/member.html#up-good</code><br>pushState 是上面那个URL<code>#</code>后面的部分</p>
+<p><code>#</code> 和 <code>?</code> 都是URL里面的保留字符，他们之间不同的是，<code>#</code>后面内容的改变不会发送新的请求<br><code>#</code> 后面的内容发生改可以这样捕获到<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> push = <span class="built_in">window</span>.location.push;</div><div class="line">	alert(push);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-PJAX/">展开全文 >></a>
         </p>
       
 
@@ -347,133 +826,10 @@
 
 
   
-    <article id="post-搭博客时遇到的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/06/搭博客时遇到的坑/">坑 | 还是坑</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/06/搭博客时遇到的坑/" class="archive-article-date">
-  	<time datetime="2017-06-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/blogImg/2017-06-06-0.jpg">  </p>
-<h2 id="细节方面"><a href="#细节方面" class="headerlink" title="细节方面"></a>细节方面</h2><p>1、 创建仓库的时候要带上默认 README文件 ，否则不会生成 master 分支<br>2、 虽然没有写一行代码，但是安装各种环境真的是巨烦<br>3、 第一次提交的时候会提示登陆GitHub，然后你电脑上的git就和你的github账号绑定起来了，当我想在第二个github账号下面提交的时候就改不掉了，就算是用SSH KEY 也不起作用，总是说你权限不够。在网上找了四五个小时都不知道怎么解决后来终于在 <a href="http://www.jianshu.com/p/0ad3d88c51f4" target="_blank" rel="external">这里</a> 找到了答案。第一次登陆后自动在 控制面板-凭据管理器 里面加了一些凭据，只能删除了这些凭据，然后再次提交的的时候接着登陆才能改过来。找了几个小时。这种坑怎么找？？？真是无语。<br>4、 <code>git clone</code> 速度真的是太慢了！！！几KB每秒，所以要用<code>git clone --depth=1</code><br>
-        
-          <a class="article-more-a" href="/2017/06/06/搭博客时遇到的坑/#more">open it >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/06/搭博客时遇到的坑/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-第一篇-感谢" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/05/第一篇-感谢/">第一篇   |   感谢</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/05/第一篇-感谢/" class="archive-article-date">
-  	<time datetime="2017-06-05T10:24:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/blogImg/2017-06-05-0.jpg" alt="脚丫子"> </p>
-<p><strong> 啊哈&nbsp;！&emsp;终于有一个博客了 </strong></p>
-<p>无法想象在这么漂亮的博客上面写东西有多爽。只可惜肚子里没多少墨水，写不出几句话来<br>写&nbsp; <a href="http://hener.me" target="_blank" rel="external">很二么</a> &nbsp;的时候就想着有个博客多好啊，每天有点感悟都不知道怎么记下来。现在好了，打算第二篇写这个博客是怎么搭起来的，第三篇写&nbsp; <a href="http://hener.me" target="_blank" rel="external">很二么</a> &nbsp;项目总结</p>
-<p>开学第一个月闲得不行，于是决定把二手交易平台写完。真是想不到忙起来的时候能这么忙。本来想着顶多一个月能完成的，可是越写坑越多。无奈，拖到了五月底。这几个月里简直是天昏地暗，每天都想着赶紧写完。写完一定要好好浪一波！谁又想到了写完了就特喵的要准备四级，要准备高数，要交各科 大作业，要…好吧，现在估计是得了肩周炎，手抬久了就觉得很酸。所以我决定要坚持跑步，尽管这是第一百次决定跑步，也不知道能坚持多久</p>
-<p>一杯新茶，几句闲话</p>
-        
-          <a class="article-more-a" href="/2017/06/05/第一篇-感谢/#more">open it >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/05/第一篇-感谢/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -567,6 +923,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">念旧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
               </li>
             
             <div class="clearfix"></div>
