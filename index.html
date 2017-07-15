@@ -146,6 +146,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Lazy Weekend~" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/15/Lazy Weekend~/">Lazy Weekend~</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/15/Lazy Weekend~/" class="archive-article-date">
+  	<time datetime="2017-07-15T14:30:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/blogImg/2017-07-15.jpg"></p>
+<p>八点的自然醒<br>连阳光都是懒洋洋的<br>透过没拉紧的窗帘缝照到了床头<br>习惯性赖床</p>
+        
+          <a class="article-more-a" href="/2017/07/15/Lazy Weekend~/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">活</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/15/Lazy Weekend~/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-页面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/14/页面/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Ironrhino第一次总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -178,7 +272,8 @@
 <ul>
 <li><strong> 初始的登录页面写在哪里？？为什么新建的项目里面找不到这个文件 </strong></li>
 </ul>
-<p>好吧，我以为自己重写一个<em>LoginAction </em>就好了，然而事实并非如此。为了写博客我刚又看了半个小时源码，但是失败了，源码的<code>LoginAction</code>有个注解指到了<strong>Spring的配置文件</strong>，然后我就蒙了。<br>但是想要知道<strong>login页面</strong>在哪或者想把登录页面改成自己的页面很简单<br>首先在源码里面 <code>Ctrl + Shift + R</code><br>输入login，就能找到LoginAction的代码和<strong>login.ftl  的位置 </strong><br>那只要在自己的项目相应的包（没有就自己加）下面添加和源码同名的login.ftl文件就行了<br>简单的理解就是覆盖源码相对应的文件<br>但是<code>LoginAction</code>并不能被覆盖！！！推测是要改配置文件才行。</p>
+<p>好吧，我以为自己重写一个<em>LoginAction </em>就好了，然而事实并非如此。为了写博客我刚又看了半个小时源码，但是失败了，源码的<code>LoginAction</code>有个注解指到了<strong>Spring的配置文件</strong>，然后我就蒙了。</p>
+<p>但是想要知道<strong>login页面</strong>在哪或者想把登录页面改成自己的页面很简单<br>首先在源码里面 <code>Ctrl + Shift + R</code><br>输入login，就能找到LoginAction的代码和<strong>login.ftl  的位置 </strong><br>那只要在自己的项目相应的包（没有就自己加）下面添加和源码同名的login.ftl文件就行了<br>简单的理解就是覆盖源码相对应的文件<br>但是<code>LoginAction</code>并不能被覆盖！！！推测是要改配置文件才行。<br><strong> 其实是可以覆盖的。。。覆盖原则是同包同名 </strong><br><strong> LoginAction  是放在 <code>org.ironrhino.core.security.action</code> 而不是<code>com.projectname.action</code> </strong><br><strong> @Order(Ordered.HIGHEST_PRECEDENCE) Spring注解可以设置同名类的指向优先级</strong></p>
 <h2 id="freemarker"><a href="#freemarker" class="headerlink" title="freemarker"></a>freemarker</h2>
         
           <a class="article-more-a" href="/2017/07/13/Ironrhino第一次总结/#more">open it >></a>
@@ -195,11 +290,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">活</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ironrhino</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ironrhino</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
         		</li>
       		
 		</ul>
@@ -499,6 +594,70 @@
 
 
   
+    <article id="post-很二么网总结-HTML or JSP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-HTML or JSP/">HTML还是JSP</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-HTML or JSP/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JSP的本质就是一个Servlet，所以它可以直接用Servlet里面的对象。<br>比如我想传一个list到前台<br>doPost()方法传递参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">request.setAttribute(<span class="string">"list"</span> ,list);</div><div class="line">request.getRequestDispatcher(<span class="string">"showlist.jsp"</span>).forward(request,response);</div></pre></td></tr></table></figure></p>
+<p>在jsp页面拿到这个list<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;%</div><div class="line">    List list = (List) request.getAttribute("list");</div><div class="line">%&gt;</div><div class="line">&lt;p&gt;&lt;%=list.size()%&gt;&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<p>而用HTML的做法是</p>
+<p>这个项目的前台完全用的是HTML而不是JSP<br>是为了把前台和后台完全分离<br>也就是说前台的人不需要懂JSP<br>甚至要加一个安卓版本后台的代码一行都不要改</p>
+<p>以前做项目的时候还考虑过怎么才能在jsp里面一行 java 代码都不写<br>现在干脆是连jsp都不用了<br>从开发效率来讲，JSP完胜HTML</p>
+<p>根据  总结一下这两种方式的异同</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-HTML or JSP/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-很二么网总结-DTO &amp;&amp; JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -570,70 +729,6 @@
 
 
   
-    <article id="post-很二么网总结-HTML or JSP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-HTML or JSP/">HTML还是JSP</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/14/很二么网总结-HTML or JSP/" class="archive-article-date">
-  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSP的本质就是一个Servlet，所以它可以直接用Servlet里面的对象。<br>比如我想传一个list到前台<br>doPost()方法传递参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">request.setAttribute(<span class="string">"list"</span> ,list);</div><div class="line">request.getRequestDispatcher(<span class="string">"showlist.jsp"</span>).forward(request,response);</div></pre></td></tr></table></figure></p>
-<p>在jsp页面拿到这个list<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;%</div><div class="line">    List list = (List) request.getAttribute("list");</div><div class="line">%&gt;</div><div class="line">&lt;p&gt;&lt;%=list.size()%&gt;&lt;/p&gt;</div></pre></td></tr></table></figure></p>
-<p>而用HTML的做法是</p>
-<p>这个项目的前台完全用的是HTML而不是JSP<br>是为了把前台和后台完全分离<br>也就是说前台的人不需要懂JSP<br>甚至要加一个安卓版本后台的代码一行都不要改</p>
-<p>以前做项目的时候还考虑过怎么才能在jsp里面一行 java 代码都不写<br>现在干脆是连jsp都不用了<br>从开发效率来讲，JSP完胜HTML</p>
-<p>根据  总结一下这两种方式的异同</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-HTML or JSP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-很二么网总结-PJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -681,137 +776,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/06/14/很二么网总结-PJAX/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-很二么网总结-字体图标" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/13/很二么网总结-字体图标/">字体图标和页面变迁史    |     项目总结   |   很二么网</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/13/很二么网总结-字体图标/" class="archive-article-date">
-  	<time datetime="2017-06-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>不知从何写起，全凭感觉，想到哪写道哪，毕竟自己的地，想怎么种就怎么种，任性~~ </li>
-</ul>
-<h2 id="初代目-图标晋级和页面变迁"><a href="#初代目-图标晋级和页面变迁" class="headerlink" title="初代目 - 图标晋级和页面变迁"></a>初代目 - 图标晋级和页面变迁</h2><p>第一个图标是用 FW 抠出来的，就是到网上找一张图片，然后把多余的部分抠掉，存成jpg留着自己用<br>后来室友发现了我这样干，嫌我LOW，说我告诉你一个神奇的网站<br>于是我认识了 <strong> 阿里妈妈矢量图标库 </strong></p>
-<p>那时候只会下载下来，但是比起原始方法已经好上无数倍了<br>可以直接改图标颜色再下载，想下什么色就下什么色，还能存成PNG的，背景色直接透明<br>瞬间觉得打开了新世界的大门<br>还有这种骚操作！！！美滋滋~~</p>
-        
-          <a class="article-more-a" href="/2017/06/13/很二么网总结-字体图标/#more">open it >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/13/很二么网总结-字体图标/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-念旧-高考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/08/念旧-高考/">念旧   |   高考</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/08/念旧-高考/" class="archive-article-date">
-  	<time datetime="2017-06-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/blogImg/2017-06-08.jpg"></p>
-<p>打算把书全部卖掉，看着一行行红黑色的笔记又于心不忍<br>没有惴惴不安，甚至还在考前一天撸了一下午<br>英语提前写完，没有检查一遍。静静地等待结束<br>我妈提前在路口接我，只是把装准考证和文具的透明袋子递到了她手中，身后恰是一抹斜阳<br>是想浪七天七夜，我爸担心我的身体和安全，第二天就成功把我逼回了家</p>
-        
-          <a class="article-more-a" href="/2017/06/08/念旧-高考/#more">open it >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">活</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">念旧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/08/念旧-高考/">展开全文 >></a>
         </p>
       
 
@@ -914,19 +878,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">活</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">念旧</a>
+                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
+                <a href="javascript:void(0)" class="js-tag color2">生</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">念旧</a>
               </li>
             
             <div class="clearfix"></div>

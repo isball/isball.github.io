@@ -9,13 +9,13 @@
   <title>Ironrhino   |   第一次总结 | 李小球</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="技能 &amp;amp;&amp;amp; 理论  一定要读源码！！！   这种没有文档的框架学习的唯一办法好像就是配合demo读源码了吧，学SSH的时候一直是看视频，对源码莫名恐惧。很感谢这个受众小，没文档，更别谈教学视频的框架，让我只能硬着头皮去看源代码，其实没那么难。   一定要要抓包分析请求！！！   能知道页面是怎么跳来跳去的，数据是怎么传来传去的。配合着我那学了几天的SSH总算是有点开窍了，特此发文">
-<meta name="keywords" content="活,ironrhino">
+<meta name="keywords" content="ironrhino,生">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ironrhino   |   第一次总结">
 <meta property="og:url" content="http://lixiaoqiu.com/2017/07/13/Ironrhino第一次总结/index.html">
 <meta property="og:site_name" content="李小球">
 <meta property="og:description" content="技能 &amp;amp;&amp;amp; 理论  一定要读源码！！！   这种没有文档的框架学习的唯一办法好像就是配合demo读源码了吧，学SSH的时候一直是看视频，对源码莫名恐惧。很感谢这个受众小，没文档，更别谈教学视频的框架，让我只能硬着头皮去看源代码，其实没那么难。   一定要要抓包分析请求！！！   能知道页面是怎么跳来跳去的，数据是怎么传来传去的。配合着我那学了几天的SSH总算是有点开窍了，特此发文">
-<meta property="og:updated_time" content="2017-07-13T15:24:07.012Z">
+<meta property="og:updated_time" content="2017-07-15T18:20:25.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ironrhino   |   第一次总结">
 <meta name="twitter:description" content="技能 &amp;amp;&amp;amp; 理论  一定要读源码！！！   这种没有文档的框架学习的唯一办法好像就是配合demo读源码了吧，学SSH的时候一直是看视频，对源码莫名恐惧。很感谢这个受众小，没文档，更别谈教学视频的框架，让我只能硬着头皮去看源代码，其实没那么难。   一定要要抓包分析请求！！！   能知道页面是怎么跳来跳去的，数据是怎么传来传去的。配合着我那学了几天的SSH总算是有点开窍了，特此发文">
@@ -178,15 +178,34 @@
 <ul>
 <li><strong> 初始的登录页面写在哪里？？为什么新建的项目里面找不到这个文件 </strong></li>
 </ul>
-<p>好吧，我以为自己重写一个<em>LoginAction </em>就好了，然而事实并非如此。为了写博客我刚又看了半个小时源码，但是失败了，源码的<code>LoginAction</code>有个注解指到了<strong>Spring的配置文件</strong>，然后我就蒙了。<br>但是想要知道<strong>login页面</strong>在哪或者想把登录页面改成自己的页面很简单<br>首先在源码里面 <code>Ctrl + Shift + R</code><br>输入login，就能找到LoginAction的代码和<strong>login.ftl  的位置 </strong><br>那只要在自己的项目相应的包（没有就自己加）下面添加和源码同名的login.ftl文件就行了<br>简单的理解就是覆盖源码相对应的文件<br>但是<code>LoginAction</code>并不能被覆盖！！！推测是要改配置文件才行。</p>
+<p>好吧，我以为自己重写一个<em>LoginAction </em>就好了，然而事实并非如此。为了写博客我刚又看了半个小时源码，但是失败了，源码的<code>LoginAction</code>有个注解指到了<strong>Spring的配置文件</strong>，然后我就蒙了。</p>
+<p>但是想要知道<strong>login页面</strong>在哪或者想把登录页面改成自己的页面很简单<br>首先在源码里面 <code>Ctrl + Shift + R</code><br>输入login，就能找到LoginAction的代码和<strong>login.ftl  的位置 </strong><br>那只要在自己的项目相应的包（没有就自己加）下面添加和源码同名的login.ftl文件就行了<br>简单的理解就是覆盖源码相对应的文件<br>但是<code>LoginAction</code>并不能被覆盖！！！推测是要改配置文件才行。<br><strong> 其实是可以覆盖的。。。覆盖原则是同包同名 </strong><br><strong> LoginAction  是放在 <code>org.ironrhino.core.security.action</code> 而不是<code>com.projectname.action</code> </strong><br><strong> @Order(Ordered.HIGHEST_PRECEDENCE) Spring注解可以设置同名类的指向优先级</strong></p>
 <h2 id="freemarker"><a href="#freemarker" class="headerlink" title="freemarker"></a>freemarker</h2><a id="more"></a>
-<p>只写理解，具体语法有点像<strong>操作 json</strong><br><strong> 跟我原来开发过的项目有很大差别 </strong><br>原先我想拿到某些值就发一个ajax请求，后台返回json数据，然后再把这些数据填到前台<br>而用freemarker则完全不同<br>他是在后台就把需要的数据和html标签填充成一个html文本，然后把整个文本返回到前台<br>当然这个文本里面也可以包含自己的js代码（或者js文件的引用），从而实现部分动态请求（抓包抓到一个 ajax请求，很尴尬，所以这样猜。。。）</p>
+<p>只写理解，具体语法有点像<strong>操作 json</strong><br><strong> 跟我原来开发过的项目有很大差别 </strong><br>原先我想拿到某些值就发一个ajax请求，后台返回json数据，然后再把这些数据填到前台<br>而用freemarker则完全不同<br><strong> （其实本质上并没有什么不同。。。） </strong><br>他是在后台就把需要的数据和html标签填充成一个html文本，然后把整个文本返回到前台<br>当然这个文本里面也可以包含自己的js代码（或者js文件的引用），从而实现部分动态请求（抓包抓到一个 ajax请求，很尴尬，所以这样猜。。。）</p>
+<ul>
+<li><p>&lt;#if&gt; 里面的条件不能出现 <code>&gt;</code> 号你敢信？？<br>如果非得用就用<code>gt</code>代替 <code>&gt;</code></p>
+</li>
+<li><p>逻辑符号是可以用的</p>
+</li>
+</ul>
+<p>*</p>
+<ul>
+<li><p>&lt;#elseif&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;#if 5&lt;3&gt;</div><div class="line">  3&lt;5</div><div class="line">&lt;#elseif 3=5&gt;</div><div class="line">  ...</div><div class="line">&lt;#elseif 3&lt;5&gt;</div><div class="line">  ...</div><div class="line">&lt;#else&gt;</div><div class="line">  ...</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>null 问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">freemarker中显示某对象使用$&#123;name&#125;.</div><div class="line"> </div><div class="line">但如果name为null，freemarker就会报错。如果需要判断对象是否为空：</div><div class="line">&lt;#if name??&gt;</div><div class="line">……</div><div class="line">&lt;/#if&gt;</div><div class="line"> </div><div class="line">当然也可以通过设置默认值$&#123;name!&apos;&apos;&#125;来避免对象为空的错误。如果name为空，就以默认值（“!”后的字符）显示。</div><div class="line"> </div><div class="line">对象user，name为user的属性的情况，user，name都有可能为空，那么可以写成$&#123;(user.name)!&apos;&apos;&#125;,表示user或者name为null，都显示为空。判断为空</div><div class="line">&lt;#if (user.name)??&gt;</div><div class="line">……</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>不知道怎么在ftl里面显示ftl标签</p>
+</li>
+</ul>
 <h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
 <li><p><code>resources.view.meta.result</code>下装的是Action的方法的 return 的页面<br>比如 Action 里 return “aaa”;<br>那只要在这个包里面 加 一个aaa.ftl就能返回到这个页面</p>
 </li>
-<li><p>调用Action里的方法<br>这是通过抓包发现的<br>第一种 直接通过链接<code>&lt;a href=&quot;actionname/methodname&quot;&gt;</code><br>第二种 分析源码 <code>user_list.ftl</code>可知，<br><code>&lt;@btn view=&quot;xxx&quot; label=&quot;testview&quot;/&gt;</code><br><code>&lt;@btn action=&quot;bbb&quot; label=&quot;testaction&quot;/&gt;</code><br>写在user_list.ftl文件里面的这种按钮的view或者action属性可以直接调用到UserAction.xxx()方法<br>view是把返回的页面填充到小框里面<br>而action是直接显示返回的页面</p>
+<li><p>调用Action里的方法<br>这是通过抓包发现的<br>第一种 直接通过链接<code>&lt;a href=&quot;actionname/methodname&quot;&gt;</code><br>第二种 分析源码 <code>user_list.ftl</code>可知，<br><code>&lt;@btn view=&quot;xxx&quot; label=&quot;testview&quot;/&gt;</code><br><code>&lt;@btn action=&quot;bbb&quot; label=&quot;testaction&quot;/&gt;</code><br>写在user_list.ftl文件里面的这种按钮的view或者action属性可以直接用方法名调用到UserAction.xxx()方法 <strong>
+</strong> 写在user_list.ftl文件里面<code>&lt;#assign&#39;&#39;&gt;</code>的这种按钮的view或者action属性可以直接用方法名调用到UserAction.xxx()方法<br><strong> 而没在<code>&lt;#assign&#39;&#39;&gt;</code>里面的要&lt;@btn action=”actionname/bbb” label=”testaction”/&gt; </strong><br>view是把返回的页面填充到小框里面<br>而action是直接显示返回的页面</p>
 </li>
-<li><p>xxx_list.ftl和自己写的list<br>前者可以直接用freemarker取到对应的值，而后者不能直接拿到</p>
+<li><p>xxx_list.ftl和自己写的list<br>前者可以直接用freemarker取到对应的值，而后者不能直接拿到<br><strong> 前者封装了这些值，而后者要自己用freemarker拿 </strong></p>
 </li>
 <li><p>EntityAction<t>继承于BaseAction, BaseAction继承于ActionSurport<br>从而完成集成Struts框架</t></p>
 </li>
@@ -207,11 +226,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">活</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ironrhino</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ironrhino</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
         		</li>
       		
 		</ul>
@@ -280,6 +299,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/07/14/页面/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2017/06/26/很二么网总结-多条件分页查询/" id="article-nav-older" class="article-nav-link-wrap">
@@ -394,19 +422,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">活</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">念旧</a>
+                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
+                <a href="javascript:void(0)" class="js-tag color2">生</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">念旧</a>
               </li>
             
             <div class="clearfix"></div>
