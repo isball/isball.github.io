@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://lixiaoqiu.com">
-  <title>算法		|		回溯法 | 李小球</title>
+  <title>面试要用而已 | 李小球</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="回溯法，整整花了三天才搞明白，后来突然有一种顿悟的感觉其实就是构造出整个解空间树然后再剪枝，接着用dfs遍历并且记录下遍历路径这篇博客会介绍用回溯法解决排列问题、组合问题、子集问题，因为很多问题都是这三个问题的变形，像N后问题就是排列问题如果文章有些地方不理解的话可以回过头看看这些1、 关于递归2、二叉树的dfs123456789public void BTdfs(TreeNode root)&amp;#">
-<meta name="keywords" content="生,算法,回溯法,dfs,排列,组合,N后问题">
+  <meta name="description" content="1、基本类型   整形 int 32位short 16位long  64位byte  8位 字符型 char  16位 浮点型 float    32位double   64位 布尔型 boolean     32位  2、装箱拆箱">
+<meta name="keywords" content="面试,冷门,不常用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法		|		回溯法">
-<meta property="og:url" content="http://lixiaoqiu.com/2018/01/28/算法-回溯法/index.html">
+<meta property="og:title" content="面试要用而已">
+<meta property="og:url" content="http://lixiaoqiu.com/2018/02/22/面试要用而已/index.html">
 <meta property="og:site_name" content="李小球">
-<meta property="og:description" content="回溯法，整整花了三天才搞明白，后来突然有一种顿悟的感觉其实就是构造出整个解空间树然后再剪枝，接着用dfs遍历并且记录下遍历路径这篇博客会介绍用回溯法解决排列问题、组合问题、子集问题，因为很多问题都是这三个问题的变形，像N后问题就是排列问题如果文章有些地方不理解的话可以回过头看看这些1、 关于递归2、二叉树的dfs123456789public void BTdfs(TreeNode root)&amp;#">
+<meta property="og:description" content="1、基本类型   整形 int 32位short 16位long  64位byte  8位 字符型 char  16位 浮点型 float    32位double   64位 布尔型 boolean     32位  2、装箱拆箱">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lixiaoqiu.com/assets/blogImg/2018-01-28.jpg">
-<meta property="og:updated_time" content="2018-02-21T08:03:50.993Z">
+<meta property="og:updated_time" content="2018-02-21T13:50:24.002Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法		|		回溯法">
-<meta name="twitter:description" content="回溯法，整整花了三天才搞明白，后来突然有一种顿悟的感觉其实就是构造出整个解空间树然后再剪枝，接着用dfs遍历并且记录下遍历路径这篇博客会介绍用回溯法解决排列问题、组合问题、子集问题，因为很多问题都是这三个问题的变形，像N后问题就是排列问题如果文章有些地方不理解的话可以回过头看看这些1、 关于递归2、二叉树的dfs123456789public void BTdfs(TreeNode root)&amp;#">
-<meta name="twitter:image" content="http://lixiaoqiu.com/assets/blogImg/2018-01-28.jpg">
+<meta name="twitter:title" content="面试要用而已">
+<meta name="twitter:description" content="1、基本类型   整形 int 32位short 16位long  64位byte  8位 字符型 char  16位 浮点型 float    32位double   64位 布尔型 boolean     32位  2、装箱拆箱">
   
     <link rel="alternative" href="/atom.xml" title="李小球" type="application/atom+xml">
   
@@ -155,35 +153,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-算法-回溯法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-面试要用而已" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      算法		|		回溯法
+      面试要用而已
     </h1>
   
 
         
-        <a href="/2018/01/28/算法-回溯法/" class="archive-article-date">
-  	<time datetime="2018-01-28T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-28</time>
+        <a href="/2018/02/22/面试要用而已/" class="archive-article-date">
+  	<time datetime="2018-02-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>回溯法，整整花了三天才搞明白，后来突然有一种顿悟的感觉<br><strong>其实就是构造出整个解空间树然后再剪枝，接着用dfs遍历并且记录下遍历路径</strong><br>这篇博客会介绍用回溯法解决排列问题、组合问题、子集问题，因为很多问题都是这三个问题的变形，像N后问题就是排列问题<br>如果文章有些地方不理解的话可以回过头看看这些<br>1、 <a href="https://zhuanlan.zhihu.com/p/24291978" target="_blank" rel="noopener">关于递归</a><br>2、二叉树的dfs<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">BTdfs</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">	vist(root);</span><br><span class="line">	<span class="keyword">if</span>(root.left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">		BTdfs(root.left);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(root.right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">		BTdfs(root.right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <blockquote>
+<p>1、基本类型</p>
+</blockquote>
+<p><strong> 整形 </strong><br>int 32位<br>short 16位<br>long  64位<br>byte  8位<br><strong> 字符型 </strong><br>char  16位<br><strong> 浮点型 </strong><br>float    32位<br>double   64位<br><strong> 布尔型 </strong><br>boolean     32位</p>
+<blockquote>
+<p>2、装箱拆箱</p>
+</blockquote>
 <p><br><br><a id="more"></a></p>
-<p>3、n叉树的dfs<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">NTdfs</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">	vist(root);</span><br><span class="line">	<span class="keyword">for</span>(TreeNode n : root.neighbor)&#123;</span><br><span class="line">		NTdfs(n);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>因为图可能是有环的，所以遍历的时候要进行记录，否则会造成无限递归</p>
-<h3 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h3><p>假如给我们一个数组 <code>int[] src = {&#39;a&#39;,&#39;b&#39;,&#39;c&#39;}</code><br>那么如何用回溯法找出他所有有可能的排列呢？<br>要用回溯法首先要构造出解空间树才能对他进行dfs<br>难道我们还要先要写一个TreeNode类，然后一个一个节点填充好这棵树吗？<br>肯定不要。。。<br>数组src的解空间树长这样<br><img src="/assets/blogImg/2018-01-28.jpg"><br><strong>我们可以发现 每个节点的子节点都是整个src数组,所以dfs中的<code>for(TreeNode n : root.neighbor){</code>可以改写成<code>for(TreeNode n : src){</code></strong><br>脑子不太灵活，卡了很久很久才理解这里为什么能这样写<br>这算是把解空间树给构造出来了<br>如果不进行任何剪枝的话我们进行dfs会出现111，112，113等错误的答案<br>那么如何进行剪枝呢？<br>111为什么是错误答案？因为1已经在第一位出现过了，所以他不可能再出现在第二位<br>根据这个思路，我们的代码又可以改成这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(TreeNode n : root.neighbor)&#123;</span><br><span class="line">	if(used[n]) continue;</span><br></pre></td></tr></table></figure></p>
-<p>现在只要知道怎么记录每条路径就能解决这个问题了！<br>其实回溯法是有专门的模版的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">backtracking</span><span class="params">( P point, List&lt;P&gt; &amp;path, List&lt;List&lt;P&gt; &gt;&amp;paths ）&#123;</span></span></span><br><span class="line"><span class="function"><span class="params">    //判断当前点是否合法，但是这里很少需要判断，一般都是直接把当前点加到path里面，再判断整条path是否符合条件</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">if</span>（!point )</span> </span></span><br><span class="line"><span class="function">        return</span>;</span><br><span class="line">    path.push_back(point);</span><br><span class="line">    <span class="comment">//整条路径是否合法，如果合法就加到paths中</span></span><br><span class="line">    bool success =  ; </span><br><span class="line">    <span class="keyword">if</span>( success )  </span><br><span class="line">        paths.add(<span class="keyword">new</span> List&lt;P&gt;(path)); <span class="comment">// don't return here</span></span><br><span class="line">    <span class="keyword">for</span>( P next: all directions )</span><br><span class="line">        <span class="comment">//可以在递归之前添加判断条件</span></span><br><span class="line">        backtracking( next, path, paths );</span><br><span class="line">    <span class="comment">//在遍历掉当前节点的所有子节点之后，从path里面删除掉该节点，所以写到for训话外面</span></span><br><span class="line">    <span class="comment">//但是有些情况也会写到for循环里面，甚至大部分情况会写到里面</span></span><br><span class="line">    path.remove(path.size()-<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>套用模版并修改之后的答案<br>1、没有把当前节点当作参数<br>2、在for循环里面再把节点添加到path中，避免对根节点（最开始）的处理<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list, List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums)</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(tempList.size() == nums.length)&#123;</span><br><span class="line">      list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</span><br><span class="line">   &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123; </span><br><span class="line">         <span class="keyword">if</span>(tempList.contains(nums[i])) <span class="keyword">continue</span>;</span><br><span class="line">         tempList.add(nums[i]);</span><br><span class="line">         backtrack(list, tempList, nums);</span><br><span class="line">         tempList.remove(tempList.size() - <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="组合："><a href="#组合：" class="headerlink" title="组合："></a>组合：</h3><p>求排列的时候是把解空间树理解为每个节点的子节点都是整个src，求组合我们可以理解为每个节点的子节点都比他自己大的一个数开始的<br>上面只要把for循环改掉就好了<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list, List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums,<span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(tempList.size() == nums.length)&#123;</span><br><span class="line">      list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</span><br><span class="line">   &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = start; i &lt; nums.length; i++)&#123; </span><br><span class="line">         <span class="keyword">if</span>(tempList.contains(nums[i])) <span class="keyword">continue</span>;</span><br><span class="line">         tempList.add(nums[i]);</span><br><span class="line">         backtrack(list, tempList, nums，i+<span class="number">1</span>);</span><br><span class="line">         tempList.remove(tempList.size() - <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="子集"><a href="#子集" class="headerlink" title="子集"></a>子集</h3><p>看代码自行理解。。。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list , List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums, <span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">    list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = start; i &lt; nums.length; i++)&#123;</span><br><span class="line">        tempList.add(nums[i]);</span><br><span class="line">        backtrack(list, tempList, nums, i + <span class="number">1</span>);</span><br><span class="line">        tempList.remove(tempList.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>基本数据类型与类类型的自动转换</p>
+<blockquote>
+<p>3、线程安全的类</p>
+</blockquote>
+<p>所谓线程安全是指<br>如果一个类，其方法都是有synchronized修饰的，那么该类就叫做线程安全的类<br>同一时间，只有一个线程能够进入 这种类的一个实例 的去修改数据，进而保证了这个实例中的数据的安全(不会同时被多线程修改而变成脏数据)<br><code>Vector</code>是而ArrayList不是<br><code>StringBuffer</code>是而StringBuilder不是<br><code>Hashtable</code>是而HashMap不是，Hashtable键不能为null而HashMap能</p>
+<blockquote>
+<p>4、&amp;&amp;和&amp; </p>
+</blockquote>
+<p>这道题没有多大意义<br>&amp;和|是位操作，这大家都知道<br>但是<strong> &amp;也叫做长路与</strong> ，&amp;&amp;叫做短路与<br>长路与 两侧，都会被运算<br>短路与 只要第一个是false，第二个就不进行运算了<br>从逻辑来看长路与是没有意义的</p>
+<blockquote>
+<p>5、final</p>
+</blockquote>
+<p>修饰<strong> 类 </strong> 表示该类不能被继承<br>修饰<strong> 方法 </strong> 表示该方法不能被重写<br>修饰<strong> 基本类型变量 </strong>  表示该变量只能被赋值一次<br>修饰<strong> 引用</strong> 表示该引用只能一次指向对象的机会</p>
+<blockquote>
+<p>6、抽象类</p>
+</blockquote>
+<p>抽象类里面可以有抽象方法也可以没有<br>接口里面只有抽象方法（JAVA8版本开始，接口可以可以提供实现方法了，前提是要在方法前加一个default修饰符）<br>抽象类里面的变量随便<br>接口的变量 默认被 public abstract static final</p>
+<blockquote>
+<p>7、short s = 1; </p>
+</blockquote>
+<p>s = s + 1  会报错<br>s += 1     不会报错</p>
+<blockquote>
+<p>8、Math里面取整方法</p>
+</blockquote>
+<p><strong> floor() </strong>    地板（向下取整），取比原值小的整数<br><strong> ceil() </strong> 天花板（向上取整），取比原值大的整数<br><strong> round() </strong>   加0.5后向下取整<br>如果参数是整数那返回取原值</p>
+<blockquote>
+<p>9、什么是java序列化，如何实现java序列化？</p>
+</blockquote>
+<p>序列化指的是把一个Java对象，通过某种介质进行传输，比如Socket输入输出流，或者保存在一个文件里<br>实现java序列化的手段是让该类实现接口 Serializable，这个接口是一个标识性接口，没有任何方法，仅仅用于表示该类可以序列化。</p>
+<blockquote>
+<p>10、 13 * 14=204 在什么几进制下成立</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span> * k^<span class="number">1</span> + <span class="number">3</span> * k^<span class="number">0</span>) * (<span class="number">1</span> * k^<span class="number">1</span> + <span class="number">4</span> * k^<span class="number">0</span>) = <span class="number">2</span> * k^<span class="number">2</span> + <span class="number">0</span> * k^<span class="number">1</span> + <span class="number">4</span> * k^<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>解得k = -1 或者8  而且式子中也没有出现比7大的数</p>
+<blockquote>
+<p>11、i++ 和 ++i</p>
+</blockquote>
+<p>i = 1;<br>j = i++ ;<br><code>i = 2 , j = 1</code></p>
+<hr>
+<p>i = 1 ;<br>j = ++i ;<br><code>i = 2 , j = 2</code></p>
+<blockquote>
+<p>12、this() 和 super()</p>
+</blockquote>
+<p>调用本类的构造方法   this(…)<br>调用父类的构造方法   super(…)<br><strong> 不能直接通过名字调用 </strong></p>
 
       
 
@@ -197,31 +238,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">冷门</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">回溯法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dfs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">组合</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">N后问题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">不常用</a>
         		</li>
       		
 		</ul>
@@ -277,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://lixiaoqiu.com/2018/01/28/算法-回溯法/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://lixiaoqiu.com/2018/02/22/面试要用而已/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,18 +316,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/29/算法-根据两种遍历序列还原二叉树/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          算法		|		根据遍历顺序还原二叉树
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/27/算法-非比较排序/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法		|		非比较排序</div>
+    <a href="/2018/02/21/java基础-并发/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础 | 并发</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -318,8 +334,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://lixiaoqiu.com/2018/01/28/算法-回溯法/", 
-    sourceId: "算法-回溯法",
+    url: "http://lixiaoqiu.com/2018/02/22/面试要用而已/", 
+    sourceId: "面试要用而已",
     productKey: "7f1054413ca74cc586469906e7a06d50",
     target: "cloud-tie-wrapper"
   };
