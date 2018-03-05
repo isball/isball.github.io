@@ -153,70 +153,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-很二么网总结-HTML or JSP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-HTML or JSP/">HTML还是JSP</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/14/很二么网总结-HTML or JSP/" class="archive-article-date">
-  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSP的本质就是一个Servlet，所以它可以直接用Servlet里面的对象。<br>比如我想传一个list到前台<br>doPost()方法传递参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"list"</span> ,list);</span><br><span class="line">request.getRequestDispatcher(<span class="string">"showlist.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
-<p>在jsp页面拿到这个list<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    List list = (List) request.getAttribute(<span class="string">"list"</span>);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;p&gt;&lt;%=list.size()%&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
-<p>而用HTML的做法是</p>
-<p>这个项目的前台完全用的是HTML而不是JSP<br>是为了把前台和后台完全分离<br>也就是说前台的人不需要懂JSP<br>甚至要加一个安卓版本后台的代码一行都不要改</p>
-<p>以前做项目的时候还考虑过怎么才能在jsp里面一行 java 代码都不写<br>现在干脆是连jsp都不用了<br>从开发效率来讲，JSP完胜HTML</p>
-<p>根据  总结一下这两种方式的异同</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-HTML or JSP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-很二么网总结-DTO &amp;&amp; JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -288,6 +224,70 @@
 
 
   
+    <article id="post-很二么网总结-HTML or JSP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-HTML or JSP/">HTML还是JSP</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-HTML or JSP/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JSP的本质就是一个Servlet，所以它可以直接用Servlet里面的对象。<br>比如我想传一个list到前台<br>doPost()方法传递参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"list"</span> ,list);</span><br><span class="line">request.getRequestDispatcher(<span class="string">"showlist.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
+<p>在jsp页面拿到这个list<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    List list = (List) request.getAttribute(<span class="string">"list"</span>);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;p&gt;&lt;%=list.size()%&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
+<p>而用HTML的做法是</p>
+<p>这个项目的前台完全用的是HTML而不是JSP<br>是为了把前台和后台完全分离<br>也就是说前台的人不需要懂JSP<br>甚至要加一个安卓版本后台的代码一行都不要改</p>
+<p>以前做项目的时候还考虑过怎么才能在jsp里面一行 java 代码都不写<br>现在干脆是连jsp都不用了<br>从开发效率来讲，JSP完胜HTML</p>
+<p>根据  总结一下这两种方式的异同</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-HTML or JSP/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-很二么网总结-Servlet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -340,6 +340,67 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-很二么网总结-PJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-PJAX/">PJAX</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-PJAX/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>p代表URL后面的#</p>
+<p><code>http://hener.me/member.html#up-good</code><br>pushState 是上面那个URL<code>#</code>后面的部分</p>
+<p><code>#</code> 和 <code>?</code> 都是URL里面的保留字符，他们之间不同的是，<code>#</code>后面内容的改变不会发送新的请求<br><code>#</code> 后面的内容发生改可以这样捕获到<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> push = <span class="built_in">window</span>.location.push;</span><br><span class="line">	alert(push);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-PJAX/">展开全文 >></a>
         </p>
       
 
@@ -704,10 +765,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">初始化</a>
               </li>
              
@@ -724,31 +781,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异常</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">容器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+                <a href="javascript:void(0)" class="js-tag color3">HashMap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线程和锁</a>
+                <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态代理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -764,15 +817,39 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线程和锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">异常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">总是深情留不住</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">念旧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,23 +877,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">念旧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">线性时间排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">非比较排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -829,6 +898,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">不常用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">线性时间排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">非比较排序</a>
               </li>
             
             <div class="clearfix"></div>
