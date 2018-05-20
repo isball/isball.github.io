@@ -153,6 +153,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-很二么网总结-Servlet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-Servlet/">很二么网总结   |    Servlet</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-Servlet/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于servlet层"><a href="#关于servlet层" class="headerlink" title="关于servlet层"></a>关于servlet层</h2><blockquote>
+<p>用同一个servlet处理不同的方法而不是用n个servlet处理n个请求 </p>
+</blockquote>
+<p>就拿登陆和注册<br>你肯定不想写一个LoginServlet再写一个RegistServlet<br>那怎么做呢<br>初阶<br>在请求里面添加参数标志调用哪个方法<br>比如隐藏一个<input>标签<br>登陆就把value设置成login<br>再到Servlet.doPost()里面用if判断<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(value.equals(<span class="string">"login"</span>))&#123;</span><br><span class="line">	login();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(value.equals(<span class="string">"regist"</span>))&#123;</span><br><span class="line">	regist();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(...)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>显然这是很LOW的</p>
+<p>高阶<br>
+        
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-很二么网总结-DTO &amp;&amp; JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -210,72 +276,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-很二么网总结-Servlet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-Servlet/">很二么网总结   |    Servlet</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/14/很二么网总结-Servlet/" class="archive-article-date">
-  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于servlet层"><a href="#关于servlet层" class="headerlink" title="关于servlet层"></a>关于servlet层</h2><blockquote>
-<p>用同一个servlet处理不同的方法而不是用n个servlet处理n个请求 </p>
-</blockquote>
-<p>就拿登陆和注册<br>你肯定不想写一个LoginServlet再写一个RegistServlet<br>那怎么做呢<br>初阶<br>在请求里面添加参数标志调用哪个方法<br>比如隐藏一个<input>标签<br>登陆就把value设置成login<br>再到Servlet.doPost()里面用if判断<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(value.equals(<span class="string">"login"</span>))&#123;</span><br><span class="line">	login();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(value.equals(<span class="string">"regist"</span>))&#123;</span><br><span class="line">	regist();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(...)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>显然这是很LOW的</p>
-<p>高阶<br>
-        
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/#more">open it >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/">展开全文 >></a>
         </p>
       
 
@@ -636,10 +636,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">生</a>
               </li>
              
@@ -664,6 +660,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -684,6 +684,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态代理</a>
               </li>
              
@@ -693,14 +701,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">总是深情留不住</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bit</a>
               </li>
              
               <li class="article-tag-list-item">
