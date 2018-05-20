@@ -153,70 +153,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-很二么网总结-HTML or JSP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-HTML or JSP/">HTML还是JSP</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/14/很二么网总结-HTML or JSP/" class="archive-article-date">
-  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSP的本质就是一个Servlet，所以它可以直接用Servlet里面的对象。<br>比如我想传一个list到前台<br>doPost()方法传递参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"list"</span> ,list);</span><br><span class="line">request.getRequestDispatcher(<span class="string">"showlist.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
-<p>在jsp页面拿到这个list<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    List list = (List) request.getAttribute(<span class="string">"list"</span>);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;p&gt;&lt;%=list.size()%&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
-<p>而用HTML的做法是</p>
-<p>这个项目的前台完全用的是HTML而不是JSP<br>是为了把前台和后台完全分离<br>也就是说前台的人不需要懂JSP<br>甚至要加一个安卓版本后台的代码一行都不要改</p>
-<p>以前做项目的时候还考虑过怎么才能在jsp里面一行 java 代码都不写<br>现在干脆是连jsp都不用了<br>从开发效率来讲，JSP完胜HTML</p>
-<p>根据  总结一下这两种方式的异同</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-HTML or JSP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-很二么网总结-PJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -278,19 +214,19 @@
 
 
   
-    <article id="post-很二么网总结-Servlet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-很二么网总结-HTML or JSP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-Servlet/">很二么网总结   |    Servlet</a>
+      <a class="article-title" href="/2017/06/14/很二么网总结-HTML or JSP/">HTML还是JSP</a>
     </h1>
   
 
         
-        <a href="/2017/06/14/很二么网总结-Servlet/" class="archive-article-date">
+        <a href="/2017/06/14/很二么网总结-HTML or JSP/" class="archive-article-date">
   	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
 </a>
         
@@ -298,15 +234,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="关于servlet层"><a href="#关于servlet层" class="headerlink" title="关于servlet层"></a>关于servlet层</h2><blockquote>
-<p>用同一个servlet处理不同的方法而不是用n个servlet处理n个请求 </p>
-</blockquote>
-<p>就拿登陆和注册<br>你肯定不想写一个LoginServlet再写一个RegistServlet<br>那怎么做呢<br>初阶<br>在请求里面添加参数标志调用哪个方法<br>比如隐藏一个<input>标签<br>登陆就把value设置成login<br>再到Servlet.doPost()里面用if判断<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(value.equals(<span class="string">"login"</span>))&#123;</span><br><span class="line">	login();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(value.equals(<span class="string">"regist"</span>))&#123;</span><br><span class="line">	regist();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(...)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>显然这是很LOW的</p>
-<p>高阶<br>
-        
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/#more">open it >></a>
-        
+        <p>JSP的本质就是一个Servlet，所以它可以直接用Servlet里面的对象。<br>比如我想传一个list到前台<br>doPost()方法传递参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"list"</span> ,list);</span><br><span class="line">request.getRequestDispatcher(<span class="string">"showlist.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
+<p>在jsp页面拿到这个list<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    List list = (List) request.getAttribute(<span class="string">"list"</span>);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;p&gt;&lt;%=list.size()%&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
+<p>而用HTML的做法是</p>
+<p>这个项目的前台完全用的是HTML而不是JSP<br>是为了把前台和后台完全分离<br>也就是说前台的人不需要懂JSP<br>甚至要加一个安卓版本后台的代码一行都不要改</p>
+<p>以前做项目的时候还考虑过怎么才能在jsp里面一行 java 代码都不写<br>现在干脆是连jsp都不用了<br>从开发效率来讲，JSP完胜HTML</p>
+<p>根据  总结一下这两种方式的异同</p>
+
       
 
       
@@ -329,78 +263,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-很二么网总结-DTO &amp;&amp; JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-DTO && JSON/">很二么网总结   |    DTO和JSON</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/14/很二么网总结-DTO && JSON/" class="archive-article-date">
-  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>什么时候开始觉得要有一个DTO层</p>
-</blockquote>
-<p>不提老生长谈的注册验证码<br>因为这里DTO不是刚需</p>
-<p>体会最深的是取商品的时候</p>
-<p>商品一个表<br>用户一个表<br>我在前台想展示的是商品的部分信息和用户的部分信息（like头像）<br>这个时候还用bean来解决吗？</p>
-<p><strong> 把GoodBean和UserBean封装成一个GoodUserDTO再传到前台 </strong></p>
-<p>写出前面这句话这里我才发现我太愚了！！！<br>我是怎么做的。。。<br>首页有商品展示<br>商品详情页也有<br>这两个页面都要包含用户和商品的信息<br>但是又不完全相同<br>我真的蠢。。。<br>我是首页的商品封装成一个HomePageGoodItemDTO,里面装的是一个个的属性，但是不包含其他多余的属性，比如首页不要显示卖家的位置，我就坚决不放这个属性<br>然后详情页的商品又封装成GoodDetailDTO,这个时候要显示卖家的位置了，我就又在这个DTO里面添加放一条属性<br>与此同时，还有像我的商品MyGoodItem，该用户的其他商品OtherGoodItem等等<br>这样，我数了一下我一共写了 19 个DTO类<br>当时还在想这么多DTO好烦啊。。。<br>但还是一股脑写下去了<br>其实有比这好一千倍的写法<br>DTO里面不放一个个的属性，而是放UserBean和GoodBean的引用不就好了吗！<br>这样不管是首页的商品还是详情页的商品还是控制台的商品，只要涉及到这两个实体的就用GoodUserDTO传递。<br>突然发现写博客的真的有好处！我的的确确是写到这里的时候才发现原来可以用这种骚操作</p>
-<blockquote>
-<p>DTO深入理解</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/#more">open it >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-HTML or JSP/">展开全文 >></a>
         </p>
       
 
@@ -769,6 +632,42 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">初始化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">加载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">执行流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">生命周期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线程和锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">总是深情留不住</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
@@ -789,22 +688,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">初始化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">加载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">执行流程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">异常</a>
               </li>
              
@@ -813,31 +696,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线程和锁</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">总是深情留不住</a>
+                <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,7 +708,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -881,14 +744,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
@@ -898,6 +753,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">非比较排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
               </li>
              
               <li class="article-tag-list-item">
