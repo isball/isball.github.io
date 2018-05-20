@@ -153,6 +153,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-地区展示的小技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/06/地区展示的小技巧/">联信学到的	|   按拼音展示地区</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/06/地区展示的小技巧/" class="archive-article-date">
+  	<time datetime="2017-09-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br></p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><img src="/assets/blogImg/2017-09-06.jpg"></p>
+        
+          <a class="article-more-a" href="/2017/09/06/地区展示的小技巧/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">地区展示</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/06/地区展示的小技巧/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-容器的过滤操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -703,19 +769,19 @@
 
 
   
-    <article id="post-很二么网总结-HTML or JSP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-很二么网总结-DTO &amp;&amp; JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-HTML or JSP/">HTML还是JSP</a>
+      <a class="article-title" href="/2017/06/14/很二么网总结-DTO && JSON/">很二么网总结   |    DTO和JSON</a>
     </h1>
   
 
         
-        <a href="/2017/06/14/很二么网总结-HTML or JSP/" class="archive-article-date">
+        <a href="/2017/06/14/很二么网总结-DTO && JSON/" class="archive-article-date">
   	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
 </a>
         
@@ -723,13 +789,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JSP的本质就是一个Servlet，所以它可以直接用Servlet里面的对象。<br>比如我想传一个list到前台<br>doPost()方法传递参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"list"</span> ,list);</span><br><span class="line">request.getRequestDispatcher(<span class="string">"showlist.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
-<p>在jsp页面拿到这个list<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    List list = (List) request.getAttribute(<span class="string">"list"</span>);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;p&gt;&lt;%=list.size()%&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
-<p>而用HTML的做法是</p>
-<p>这个项目的前台完全用的是HTML而不是JSP<br>是为了把前台和后台完全分离<br>也就是说前台的人不需要懂JSP<br>甚至要加一个安卓版本后台的代码一行都不要改</p>
-<p>以前做项目的时候还考虑过怎么才能在jsp里面一行 java 代码都不写<br>现在干脆是连jsp都不用了<br>从开发效率来讲，JSP完胜HTML</p>
-<p>根据  总结一下这两种方式的异同</p>
-
+        <blockquote>
+<p>什么时候开始觉得要有一个DTO层</p>
+</blockquote>
+<p>不提老生长谈的注册验证码<br>因为这里DTO不是刚需</p>
+<p>体会最深的是取商品的时候</p>
+<p>商品一个表<br>用户一个表<br>我在前台想展示的是商品的部分信息和用户的部分信息（like头像）<br>这个时候还用bean来解决吗？</p>
+<p><strong> 把GoodBean和UserBean封装成一个GoodUserDTO再传到前台 </strong></p>
+<p>写出前面这句话这里我才发现我太愚了！！！<br>我是怎么做的。。。<br>首页有商品展示<br>商品详情页也有<br>这两个页面都要包含用户和商品的信息<br>但是又不完全相同<br>我真的蠢。。。<br>我是首页的商品封装成一个HomePageGoodItemDTO,里面装的是一个个的属性，但是不包含其他多余的属性，比如首页不要显示卖家的位置，我就坚决不放这个属性<br>然后详情页的商品又封装成GoodDetailDTO,这个时候要显示卖家的位置了，我就又在这个DTO里面添加放一条属性<br>与此同时，还有像我的商品MyGoodItem，该用户的其他商品OtherGoodItem等等<br>这样，我数了一下我一共写了 19 个DTO类<br>当时还在想这么多DTO好烦啊。。。<br>但还是一股脑写下去了<br>其实有比这好一千倍的写法<br>DTO里面不放一个个的属性，而是放UserBean和GoodBean的引用不就好了吗！<br>这样不管是首页的商品还是详情页的商品还是控制台的商品，只要涉及到这两个实体的就用GoodUserDTO传递。<br>突然发现写博客的真的有好处！我的的确确是写到这里的时候才发现原来可以用这种骚操作</p>
+<blockquote>
+<p>DTO深入理解</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/#more">open it >></a>
+        
       
 
       
@@ -752,68 +825,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-HTML or JSP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-很二么网总结-PJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-PJAX/">PJAX</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/14/很二么网总结-PJAX/" class="archive-article-date">
-  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>p代表URL后面的#</p>
-<p><code>http://hener.me/member.html#up-good</code><br>pushState 是上面那个URL<code>#</code>后面的部分</p>
-<p><code>#</code> 和 <code>?</code> 都是URL里面的保留字符，他们之间不同的是，<code>#</code>后面内容的改变不会发送新的请求<br><code>#</code> 后面的内容发生改可以这样捕获到<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> push = <span class="built_in">window</span>.location.push;</span><br><span class="line">	alert(push);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-PJAX/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/">展开全文 >></a>
         </p>
       
 
@@ -920,7 +932,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">容器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HashMap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Map</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -940,7 +968,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">活</a>
+                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -953,6 +981,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">线程和锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">活</a>
               </li>
              
               <li class="article-tag-list-item">
