@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://lixiaoqiu.com/assets/blogImg/2018-07-21-1.jpg">
 <meta property="og:image" content="http://lixiaoqiu.com/assets/blogImg/2018-07-21-2.jpg">
-<meta property="og:updated_time" content="2018-07-21T07:04:53.177Z">
+<meta property="og:updated_time" content="2018-07-21T07:11:00.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日流水账">
 <meta name="twitter:description" content="此篇  &amp;nbsp;每日&amp;nbsp; (每周) 更新中，没干货就瞎聊。。。 但是不知道这次又能坚持多久（现在知道了，一天- _ -） 7.21有一种无奈叫做设计师觉得你能做出来！！！写前台真的是有点无聊，写完的东西太容易忘了，有些点用了三四遍了下次用的时候还得去百度，所以还是得把一些细枝末节的东西记录下来。  1、postMessage 想做一个可关闭的页签，页签下面的内容是用iframe做的，点">
@@ -180,7 +180,9 @@
 <p>但是不知道这次又能坚持多久（现在知道了，一天- _ -）</p>
 <h2 id="7-21"><a href="#7-21" class="headerlink" title="7.21"></a>7.21</h2><p>有一种无奈叫做设计师觉得你能做出来！！！<br>写前台真的是有点无聊，写完的东西太容易忘了，有些点用了三四遍了下次用的时候还得去百度，所以还是得把一些细枝末节的东西记录下来。</p>
 <p><strong> 1、postMessage </strong><br>想做一个可关闭的页签，页签下面的内容是用iframe做的，点击iframe里面的内容可以在主页面新增一个页签。但是碰到了一个很经典的问题。</p>
-<p>当我在主页面写方法的时候，绑定不到iframe中的元素。写在iframe里面又不能访问到主页面的元素。<br>旁边八年的大牛一看就知道是跨域了。<br>最后他是用的 postMessage。<br><a id="more"></a><br>postMessage作用：<br>不同HTML页面之间进行消息传递（跨域问题）。<br>所以，主页面<br>写一个监听message事件的监听器<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'...'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p>当我在主页面写方法的时候，绑定不到iframe中的元素。写在iframe里面又不能访问到主页面的元素。<br>旁边八年的大牛一看就知道是跨域了。<br>最后他是用的 postMessage。</p>
+<a id="more"></a>
+<p>postMessage作用：<br>不同HTML页面之间进行消息传递（跨域问题）。<br>所以，主页面<br>写一个监听message事件的监听器<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'...'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
 <p>子页面<br>发送消息,注意子页面发给父页面的话一定要带一个<code>parent.</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).on(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	parent.postMessage(<span class="built_in">JSON</span>.stringify(&#123;&#125;),<span class="string">"*"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p><strong> 2、echarts </strong><br>echarts是很强大，但是对于这个页面来说还是显得有些吃力，吃力个鸡儿啊，简直是无力吐槽好吗？<br>右下角的饼状图，龟龟，你是在秀吗？<br>这个地图边缘发光也太炫酷了吧？<br>行吧，跟组里设计师的梁子算是结下了- _ -<br>其他地方倒还好，照着文档改一改还是能出个90%相似度的，<br>但是图表legend图标的大小不能自定义？？？<br>反正我是翻遍了也么找到。<br><img style="width: 800px;" src="/assets/blogImg/2018-07-21-1.jpg"></p>
 <p><strong> 3、CSS </strong><br>图标无法和文字从中间对其的话:<code>vertical-align:middle</code><br><img style="" src="/assets/blogImg/2018-07-21-2.jpg"></p>
@@ -402,10 +404,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
@@ -423,6 +421,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Map</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,27 +484,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">总是深情留不住</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">念旧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">线性时间排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">非比较排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,6 +525,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">线性时间排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">非比较排序</a>
               </li>
             
             <div class="clearfix"></div>
