@@ -153,6 +153,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-很二么网总结-数据库&amp;&amp;DAO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/25/很二么网总结-数据库&&DAO/">很二么网总结   |    数据库</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/25/很二么网总结-数据库&&DAO/" class="archive-article-date">
+  	<time datetime="2017-06-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br><br><a style="font-size:25px" href="http://tool.oschina.net/apidocs/apidoc?api=mysql-5.1-zh" target="_blank" rel="noopener">MySQL-5.1中文文档</a><br><br></p>
+<h2 id="ID-amp-amp-主键"><a href="#ID-amp-amp-主键" class="headerlink" title="ID &amp;&amp; 主键"></a>ID &amp;&amp; 主键</h2><p>id是每个表都一定要有的，自增就行了<br>id的唯一作用就是当主键,主键用id也是最合适的<br>即使是关联表，也不要用两个组合属性当主键<br>电话这个属性看上去很适合当主键，每个用户的电话都不同，是唯一的，能标识这一行的数据<br>但是如果用户换了电话呢？<br>那么所有和用户相关联的表都会受影响，这些表都要修改一遍电话才行<br>所以<br>主键要用没有意义的列，避免主键修改，主键起到的作用仅仅只是标识某行数据</p>
+<h2 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h2><p>外键无非是用来保证数据的参照完整性，也就是，不允许在进行更新操作（DML）的时候破坏数据的参照完整性</p>
+<p>用户想删除自己的帐号的时候（拒绝，联级删除 or 设置为空值）<br>这里看起来只有第二种 联级删除可以用</p>
+<p>按照传统的做法，为了避免脏数据的产生，我们应该将关于这个用户的所有东西都删除掉，比如他上传过的商品<br>这个时候建表的时候写了外键，并且写了 on update cascade,那么上面说的操作会很简单，只要删除了用户表的数据商品表里面相关的数据也会跟着删除</p>
+<p>但是私以为现在并不适合这么做</p>
+<ol>
+<li>当用户想删除自己的账号时，加一个 is_deleted 字段标志是否被删除就行了，删除的时候在应用层就实现联级删除的需求，把商品表里面对应的is_deleted 也设置成true。<br>为什么要这么做？<br>机械硬盘是非常廉价的，里面保存的数据远远高于硬盘本身的价值，某些数据看上去是脏数据，但是当将来数据量大起来想做数据分析的时候他们就变得有用起来了。所以这些数据不应该被真正的移除<br>这么做相对于外键联级的好处？<br>可是即使用外键，还是可以用同样的方法避免数据真正的删除啊？<br>但是何必呢，因为根本就没有 删除 这个操作了<br>何况 如果一个系统几百万用户<br>插入一件商品的时候，还要到用户表里面检查几百万次（当然主键索引可以优化这个时间，但是还是会耗时）<br>最为致命的是<br><code>外键与级联更新适用于单机低并发，不适合分布式、高并发集群；级联更新是强阻塞，存在数
+据库更新风暴的风险</code><br>这句话来自阿里巴巴java开发手册。。。我没太搞懂强阻塞的概念，贴出来供大家讨论。。。</li>
+</ol>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2>
+        
+          <a class="article-more-a" href="/2017/06/25/很二么网总结-数据库&&DAO/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/25/很二么网总结-数据库&&DAO/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-很二么网总结-图片上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -287,6 +358,77 @@
 
 
   
+    <article id="post-很二么网总结-DTO &amp;&amp; JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-DTO && JSON/">很二么网总结   |    DTO和JSON</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-DTO && JSON/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>什么时候开始觉得要有一个DTO层</p>
+</blockquote>
+<p>不提老生长谈的注册验证码<br>因为这里DTO不是刚需</p>
+<p>体会最深的是取商品的时候</p>
+<p>商品一个表<br>用户一个表<br>我在前台想展示的是商品的部分信息和用户的部分信息（like头像）<br>这个时候还用bean来解决吗？</p>
+<p><strong> 把GoodBean和UserBean封装成一个GoodUserDTO再传到前台 </strong></p>
+<p>写出前面这句话这里我才发现我太愚了！！！<br>我是怎么做的。。。<br>首页有商品展示<br>商品详情页也有<br>这两个页面都要包含用户和商品的信息<br>但是又不完全相同<br>我真的蠢。。。<br>我是首页的商品封装成一个HomePageGoodItemDTO,里面装的是一个个的属性，但是不包含其他多余的属性，比如首页不要显示卖家的位置，我就坚决不放这个属性<br>然后详情页的商品又封装成GoodDetailDTO,这个时候要显示卖家的位置了，我就又在这个DTO里面添加放一条属性<br>与此同时，还有像我的商品MyGoodItem，该用户的其他商品OtherGoodItem等等<br>这样，我数了一下我一共写了 19 个DTO类<br>当时还在想这么多DTO好烦啊。。。<br>但还是一股脑写下去了<br>其实有比这好一千倍的写法<br>DTO里面不放一个个的属性，而是放UserBean和GoodBean的引用不就好了吗！<br>这样不管是首页的商品还是详情页的商品还是控制台的商品，只要涉及到这两个实体的就用GoodUserDTO传递。<br>突然发现写博客的真的有好处！我的的确确是写到这里的时候才发现原来可以用这种骚操作</p>
+<blockquote>
+<p>DTO深入理解</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-很二么网总结-PJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -400,77 +542,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/06/14/很二么网总结-Servlet/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-很二么网总结-DTO &amp;&amp; JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-DTO && JSON/">很二么网总结   |    DTO和JSON</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/14/很二么网总结-DTO && JSON/" class="archive-article-date">
-  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>什么时候开始觉得要有一个DTO层</p>
-</blockquote>
-<p>不提老生长谈的注册验证码<br>因为这里DTO不是刚需</p>
-<p>体会最深的是取商品的时候</p>
-<p>商品一个表<br>用户一个表<br>我在前台想展示的是商品的部分信息和用户的部分信息（like头像）<br>这个时候还用bean来解决吗？</p>
-<p><strong> 把GoodBean和UserBean封装成一个GoodUserDTO再传到前台 </strong></p>
-<p>写出前面这句话这里我才发现我太愚了！！！<br>我是怎么做的。。。<br>首页有商品展示<br>商品详情页也有<br>这两个页面都要包含用户和商品的信息<br>但是又不完全相同<br>我真的蠢。。。<br>我是首页的商品封装成一个HomePageGoodItemDTO,里面装的是一个个的属性，但是不包含其他多余的属性，比如首页不要显示卖家的位置，我就坚决不放这个属性<br>然后详情页的商品又封装成GoodDetailDTO,这个时候要显示卖家的位置了，我就又在这个DTO里面添加放一条属性<br>与此同时，还有像我的商品MyGoodItem，该用户的其他商品OtherGoodItem等等<br>这样，我数了一下我一共写了 19 个DTO类<br>当时还在想这么多DTO好烦啊。。。<br>但还是一股脑写下去了<br>其实有比这好一千倍的写法<br>DTO里面不放一个个的属性，而是放UserBean和GoodBean的引用不就好了吗！<br>这样不管是首页的商品还是详情页的商品还是控制台的商品，只要涉及到这两个实体的就用GoodUserDTO传递。<br>突然发现写博客的真的有好处！我的的确确是写到这里的时候才发现原来可以用这种骚操作</p>
-<blockquote>
-<p>DTO深入理解</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/#more">open it >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/">展开全文 >></a>
         </p>
       
 
@@ -875,10 +946,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -899,6 +966,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">总是深情留不住</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">位运算</a>
               </li>
              
@@ -907,7 +982,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">总是深情留不住</a>
+                <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -919,11 +994,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
+                <a href="javascript:void(0)" class="js-tag color3">念旧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">念旧</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">线性时间排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">非比较排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -956,18 +1039,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">线性时间排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">非比较排序</a>
               </li>
             
             <div class="clearfix"></div>
