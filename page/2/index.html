@@ -153,6 +153,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-算法-根据两种遍历序列还原二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/29/算法-根据两种遍历序列还原二叉树/">算法		|		根据遍历顺序还原二叉树</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/29/算法-根据两种遍历序列还原二叉树/" class="archive-article-date">
+  	<time datetime="2018-01-28T16:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br><br>已知一棵二叉树的前序遍历为pre[]=[1,2,4,7,3,5,6,8],中序遍历为in[]=[4,7,2,1,5,3,8,6]，求出这棵二叉树。<br>这种题目考数据结构的时候我就是背下来的，没有理解，现在又碰到了还是决定要弄清楚<br>前序遍历即根左右，所以前序遍历中第一个元素一定是整棵树的根<br>中序遍历即左根右，所以中序遍历中，根节点的前半部分属于根节点的左子树，根节点的后半部分属于右子树</p>
+<p><br><br>
+        
+          <a class="article-more-a" href="/2018/01/29/算法-根据两种遍历序列还原二叉树/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">二叉树还原</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/29/算法-根据两种遍历序列还原二叉树/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-算法-回溯法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -781,74 +851,6 @@
 
 
   
-    <article id="post-很二么网总结-多条件分页查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/26/很二么网总结-多条件分页查询/">很二么网总结   |    多条件+连表+排序+分页 查询</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/26/很二么网总结-多条件分页查询/" class="archive-article-date">
-  	<time datetime="2017-06-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基本上是个项目就会有这种应用</p>
-<p>先说一下怎么实现关键字查询<br>我的商品没有设计商品名这个属性<br>初衷是为了减少用户操作，我对过多的填写及其反感，就像有些公司网申填简历的时候恨不得把你一家人都调查得清清楚楚再让你投<br>而且商品名和商品描述两者显得冗余<br>但是商品名确实也有用武之地<br>当商品被锁定通过短信通知的时候用商品名告诉用户具体是哪件商品被锁定是很合适的，用商品描述的话太长了<br>既不想增加用户上传负担有想精确地通知用户的话，完全可以设计算法提取出商品描述中的关键字解决这个问题</p>
-<p>所搜机制是通过标签实现的<br>用户为自己上传的商品添加N个标签，这些标签成为搜索的依据</p>
-<h2 id="多条件"><a href="#多条件" class="headerlink" title="多条件"></a>多条件</h2><p>按关键字查询还是按类别查询<br>又或者是先选定某个类别，再到这个类别下面筛选关键字<br>是否显示被锁定的商品</p>
-<p>因为是二手市场，只做了一级分类<br>不像大型电商网站分类都有N级，分完类还有某些类别的特定属性（比如手机有内存大小属性，而篮球有。。。）</p>
-<p>按关键字：select <em> from good,tag where (tag like ? and good.id = tag.goodid );<br>按类别：select </em> from good where category = ? ;<br>既有类别又有关键字 select * from good,tag where (good.category = ? and tag like ? and good.id = tag.goodid);</p>
-<p>按关键字不显示被锁定的：select <em> from good,tag where (tag like ? and good.id = tag.goodid and good.locked = false);<br>按关键字显示被锁定的：select </em> from good,tag where (tag like ? and good.id = tag.goodid );<br>注意上面不是 good.locked == true，所以不能用？替换<br>。。。<br>。。。<br>这样就要写6个方法了<br>如果哪天老板说有新的需求，要求只显示最近一个月的商品<br>？？？一脸懵逼？？？<br>又要多写6个方法，每条语句后面加上 and good.上传时间 = 最近一个月</p>
-<p>显然这是不可能的<br><strong> 讲重点了！！！ </strong><br>
-        
-          <a class="article-more-a" href="/2017/06/26/很二么网总结-多条件分页查询/#more">open it >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/26/很二么网总结-多条件分页查询/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -941,7 +943,47 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JOIN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">初始化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">加载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">执行流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -965,43 +1007,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">初始化</a>
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">加载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">执行流程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线程和锁</a>
+                <a href="javascript:void(0)" class="js-tag color4">bit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1013,23 +1023,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态代理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线程和锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1046,14 +1056,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">高度自适应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1078,6 +1080,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">N后问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
               </li>
              
               <li class="article-tag-list-item">

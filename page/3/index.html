@@ -153,6 +153,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-很二么网总结-多条件分页查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/26/很二么网总结-多条件分页查询/">很二么网总结   |    多条件+连表+排序+分页 查询</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/26/很二么网总结-多条件分页查询/" class="archive-article-date">
+  	<time datetime="2017-06-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基本上是个项目就会有这种应用</p>
+<p>先说一下怎么实现关键字查询<br>我的商品没有设计商品名这个属性<br>初衷是为了减少用户操作，我对过多的填写及其反感，就像有些公司网申填简历的时候恨不得把你一家人都调查得清清楚楚再让你投<br>而且商品名和商品描述两者显得冗余<br>但是商品名确实也有用武之地<br>当商品被锁定通过短信通知的时候用商品名告诉用户具体是哪件商品被锁定是很合适的，用商品描述的话太长了<br>既不想增加用户上传负担有想精确地通知用户的话，完全可以设计算法提取出商品描述中的关键字解决这个问题</p>
+<p>所搜机制是通过标签实现的<br>用户为自己上传的商品添加N个标签，这些标签成为搜索的依据</p>
+<h2 id="多条件"><a href="#多条件" class="headerlink" title="多条件"></a>多条件</h2><p>按关键字查询还是按类别查询<br>又或者是先选定某个类别，再到这个类别下面筛选关键字<br>是否显示被锁定的商品</p>
+<p>因为是二手市场，只做了一级分类<br>不像大型电商网站分类都有N级，分完类还有某些类别的特定属性（比如手机有内存大小属性，而篮球有。。。）</p>
+<p>按关键字：select <em> from good,tag where (tag like ? and good.id = tag.goodid );<br>按类别：select </em> from good where category = ? ;<br>既有类别又有关键字 select * from good,tag where (good.category = ? and tag like ? and good.id = tag.goodid);</p>
+<p>按关键字不显示被锁定的：select <em> from good,tag where (tag like ? and good.id = tag.goodid and good.locked = false);<br>按关键字显示被锁定的：select </em> from good,tag where (tag like ? and good.id = tag.goodid );<br>注意上面不是 good.locked == true，所以不能用？替换<br>。。。<br>。。。<br>这样就要写6个方法了<br>如果哪天老板说有新的需求，要求只显示最近一个月的商品<br>？？？一脸懵逼？？？<br>又要多写6个方法，每条语句后面加上 and good.上传时间 = 最近一个月</p>
+<p>显然这是不可能的<br><strong> 讲重点了！！！ </strong><br>
+        
+          <a class="article-more-a" href="/2017/06/26/很二么网总结-多条件分页查询/#more">open it >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/26/很二么网总结-多条件分页查询/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-很二么网总结-数据库&amp;&amp;DAO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -280,6 +348,67 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/06/20/很二么网总结-图片上传/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-很二么网总结-PJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/很二么网总结-PJAX/">PJAX</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/很二么网总结-PJAX/" class="archive-article-date">
+  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>p代表URL后面的#</p>
+<p><code>http://hener.me/member.html#up-good</code><br>pushState 是上面那个URL<code>#</code>后面的部分</p>
+<p><code>#</code> 和 <code>?</code> 都是URL里面的保留字符，他们之间不同的是，<code>#</code>后面内容的改变不会发送新的请求<br><code>#</code> 后面的内容发生改可以这样捕获到<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> push = <span class="built_in">window</span>.location.push;</span><br><span class="line">	alert(push);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/很二么网总结-PJAX/">展开全文 >></a>
         </p>
       
 
@@ -481,67 +610,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/06/14/很二么网总结-DTO && JSON/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-很二么网总结-PJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/很二么网总结-PJAX/">PJAX</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/14/很二么网总结-PJAX/" class="archive-article-date">
-  	<time datetime="2017-06-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>p代表URL后面的#</p>
-<p><code>http://hener.me/member.html#up-good</code><br>pushState 是上面那个URL<code>#</code>后面的部分</p>
-<p><code>#</code> 和 <code>?</code> 都是URL里面的保留字符，他们之间不同的是，<code>#</code>后面内容的改变不会发送新的请求<br><code>#</code> 后面的内容发生改可以这样捕获到<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> push = <span class="built_in">window</span>.location.push;</span><br><span class="line">	alert(push);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/14/很二么网总结-PJAX/">展开全文 >></a>
         </p>
       
 
@@ -840,7 +908,47 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JOIN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">初始化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">加载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">执行流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,43 +972,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">初始化</a>
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">加载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">执行流程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线程和锁</a>
+                <a href="javascript:void(0)" class="js-tag color4">bit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,23 +988,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态代理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线程和锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -945,14 +1021,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">高度自适应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -977,6 +1045,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">N后问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://lixiaoqiu.com">
-  <title>SQL BASIC | 李小球</title>
+  <title>MySQL | JOIN 优化 | 李小球</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Execution Oeder of SELECT">
-<meta name="keywords" content="生,SQL,数据库">
+  <meta name="description" content="JOIN过程JOIN过程十分暴力，连接算法叫做：Nested-Loop Join(NLJ),嵌套循环。例如 t1 left join t2 on t1.id1 = t2.id2">
+<meta name="keywords" content="生,SQL,数据库,JOIN,优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL BASIC">
-<meta property="og:url" content="http://lixiaoqiu.com/2018/09/09/SQL BASIC/index.html">
+<meta property="og:title" content="MySQL | JOIN 优化">
+<meta property="og:url" content="http://lixiaoqiu.com/2018/09/17/MySQL-JOIN 优化/index.html">
 <meta property="og:site_name" content="李小球">
-<meta property="og:description" content="Execution Oeder of SELECT">
+<meta property="og:description" content="JOIN过程JOIN过程十分暴力，连接算法叫做：Nested-Loop Join(NLJ),嵌套循环。例如 t1 left join t2 on t1.id1 = t2.id2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lixiaoqiu.com/assets/blogImg/2018-09-09.jpg">
-<meta property="og:updated_time" content="2018-09-09T05:18:33.514Z">
+<meta property="og:image" content="http://lixiaoqiu.com/assets/blogImg/2018-09-17.jpg">
+<meta property="og:updated_time" content="2018-09-17T14:53:33.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQL BASIC">
-<meta name="twitter:description" content="Execution Oeder of SELECT">
-<meta name="twitter:image" content="http://lixiaoqiu.com/assets/blogImg/2018-09-09.jpg">
+<meta name="twitter:title" content="MySQL | JOIN 优化">
+<meta name="twitter:description" content="JOIN过程JOIN过程十分暴力，连接算法叫做：Nested-Loop Join(NLJ),嵌套循环。例如 t1 left join t2 on t1.id1 = t2.id2">
+<meta name="twitter:image" content="http://lixiaoqiu.com/assets/blogImg/2018-09-17.jpg">
   
     <link rel="alternative" href="/atom.xml" title="李小球" type="application/atom+xml">
   
@@ -155,39 +155,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SQL BASIC" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySQL-JOIN 优化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SQL BASIC
+      MySQL | JOIN 优化
     </h1>
   
 
         
-        <a href="/2018/09/09/SQL BASIC/" class="archive-article-date">
-  	<time datetime="2018-09-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-09</time>
+        <a href="/2018/09/17/MySQL-JOIN 优化/" class="archive-article-date">
+  	<time datetime="2018-09-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/2018-09-09.jpg"></p>
-<h2 id="Execution-Oeder-of-SELECT"><a href="#Execution-Oeder-of-SELECT" class="headerlink" title="Execution Oeder of SELECT"></a>Execution Oeder of SELECT</h2><a id="more"></a>
-<p>Only you are familar enough with the execution order of a select statemrnt, you can optimize it.<br><strong>FROM-&gt;ON-&gt;OUTER-&gt;WHERE-&gt;GROUP BY-&gt;HAVING-&gt;SELECT-&gt;DISTINCT-&gt;ORDER BY-&gt;LIMIT</strong></p>
-<h2 id="KEYWORDS"><a href="#KEYWORDS" class="headerlink" title="KEYWORDS"></a>KEYWORDS</h2><p><strong>FROM</strong><br>The nature of the from clause is Cartesian Product. In sql, it is also called JOIN.join is the first thing to happen. JOIN are devided into INNER JOIN and OUTER JOIN. INNER JOIN has three ways of writing. They are functionally equivalent,  but INNER JOIN can be a bit clearer to read,  especially if the query has other join types included in it.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM table1, table2</span><br><span class="line">FROM table1 JOIN table2</span><br><span class="line">FROM table1 INNER JOIN table2</span><br></pre></td></tr></table></figure></p>
-<p><strong>ON</strong><br>ON clause is a Filter after JOIN operation, It can  be understood as connection condition also.  After JOIN operation, ON clause execute.<br>For example:<br><code>SELECT * FROM products INNER JOIN categories ON products. category_id = categories. category_id</code><br>it means categories table and products table do carttesian product operation, get a new table called base table, Then select records with the same category_id as the result. </p>
-<p><strong>OUTER</strong><br>OUTER is a hidden keyword.<br>For example:<br><code>SELECT * FROM products LEFT JOIN categories ON products. category_id = categories. category_id</code><br>When using an OUTER JOIN(OUTER JOIN not OUTER),  the outer operation will be executed after the on operation is completed.<br>So, What dose outer mean?<br>First:OUTER JOIN are devide into LEFT JOIN &amp;&amp; RIGHT JOIN &amp;&amp; FULL JOIN.<br>second:FULL JOIN means both use LEFT JOIN AND RIGHT JOIN.<br>When useing LEFT JOIN as above, Will return a temporary table after the on operation. The database manager compares the temporary table with the left table,  and adds the records in the left table but not in the new table(filtered by the on operation) to the new table,  and finally return the completed new table as the result. This completion process is called OUTER. </p>
-<p><strong>WHERE</strong><br>The WHERE clause is used to filter the results from a SELECT,  INSERT,  UPDATE,  or DELETE statement.<br>Where and on is also a row-filter, But ON is more than WHERE to execute first, and ON can only be used to JOIN tables(FROM clause);</p>
-<p><strong>GROUP BY</strong><br>GROUP BY clause means group data, rows with the same value in the columns specified by the ‘BY’ keyword will be grouped into a group, ‘BY’ can specify multiple columns.<br>RULE: <strong> The columns specified by select should either be included after the Group By statement as the basis for grouping, or it should be included in the aggregate function. </strong><br>For example:<br><code>SELECT MAX(salary) , dept_id FROM employees GROUP BY dept_id</code><br>it means:Divide the rows with the same dept_id value into one group,  then use the MAX() function to find the row with the largest value of ‘salary’ for each group as the result. </p>
-<p><strong>HAVING</strong><br>If you want to filter the data after the GROUP BY clause,  you can use the HAVING clause.<br>For example:<br><code>select MAX(salary) s , dept_id FROM employees GROUP BY dept_id HAVING s &gt; 62000</code></p>
-<p><strong>SELECT</strong><br>Contrary to ‘ON’, ‘WHERE’, ‘HAVING’, SELECT is a projection operation. SELECT clause can filter out unused columns. </p>
-<p><strong>DISTINCT</strong><br>DISTINCT clause is used to remove duplicates from the result set of a SELECT statement.<br>DISTINCT can specify multiple columns. </p>
-<p><strong>IN</strong><br>IN clause is used to help reduce the need for multiple OR conditions in a SELECT,  INSERT,  UPDATE,  or DELETE statement. </p>
-<p><a href="https://www.techonthenet.com/sql/from_ddl.php" target="_blank" rel="noopener">table&amp;data</a></p>
+        <p><img src="/assets/blogImg/2018-09-17.jpg"></p>
+<h2 id="JOIN过程"><a href="#JOIN过程" class="headerlink" title="JOIN过程"></a>JOIN过程</h2><p>JOIN过程十分暴力，连接算法叫做：Nested-Loop Join(NLJ),嵌套循环。<br>例如 <code>t1 left join t2 on t1.id1 = t2.id2</code><br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(id1 in t1.id1)&#123;</span><br><span class="line">    <span class="keyword">for</span>(id2 in t2.id2)&#123;</span><br><span class="line">        <span class="keyword">if</span>(id1 == id2) add row to joinResultTable</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>IO次数为 <strong>t1.size*t2.size</strong><br>之前我以为是不管三七二十一先做笛卡儿积，再根据ON条件做筛选，也就是说FROM操作会先产生一张临时表。事实上这样做的IO次数会比上述代码还多。<br>尽管NLJ十分暴力，但是配合上索引来做的话性能还是比较可观的，<strong>如果t2.id2这一列上面建了索引的话，时间复杂度就降为了O(n)</strong><br>因为利用索引可以直接找到某一条t1.id1 == t2.id2，也就是说不要通过嵌套for循环来找。<br>降低IO次数：<br>但是当t2.id2上面没有索引的时候，MySQL会修改NLJ为Block Nested-Loop(BNL)来进行优化。<br>算法原理是<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.<span class="keyword">for</span>(id1 in t1.id1)&#123;</span><br><span class="line"><span class="number">2</span>.    add id1 to join buffer</span><br><span class="line"><span class="number">3</span>.    <span class="keyword">if</span> buffer is full&#123;</span><br><span class="line"><span class="number">4</span>.        <span class="keyword">for</span>(id2 in t2.id2)&#123;</span><br><span class="line"><span class="number">5</span>.            <span class="keyword">for</span> (id3 in join buffer.id1)&#123;</span><br><span class="line"><span class="number">6</span>.                <span class="keyword">if</span>(id3 == id2) add row to joinResultTable</span><br><span class="line"><span class="number">7</span>.            &#125;</span><br><span class="line"><span class="number">8</span>.        &#125;</span><br><span class="line"><span class="number">9</span>.    &#125;</span><br><span class="line"><span class="number">10</span>.    empty join buffer</span><br><span class="line"><span class="number">11</span>.&#125;</span><br></pre></td></tr></table></figure></p>
+<p>假设t1有100行，t2有1000行join buffer 能缓存10行(n行)。<br>那么IO次数为 100 + (100/10) * 1000 = 10100;公式: <code>t1.size + (t1.size/n) * t2.size</code><br>在第五行代码中，<strong>由于是直接从内存中取数据，所以不会有IO操作。</strong>这也是BNL明明增加了操作却能优化JOIN的关键所在。</p>
+<h2 id="JOIN优化"><a href="#JOIN优化" class="headerlink" title="JOIN优化"></a>JOIN优化</h2><p>知道join过程之后就可以对其做出优化啦：<br>1.在被驱动表的连接条件建立索引。<br>2.将小表作为驱动表<br>原因是：<br>如果是NLJ不带索引，那没啥用<br>如果是NLJ+索引，那IO复杂度为O(驱动表)<br>如果是BNL，那么根据公式t1.size + (t1.size/n) * t2.size，这个公式达到最优情况也是两个表各自扫描一次，在join buffer 大小刚好能装下驱动表（t1）的情况下，所以小的驱动表需要更少的join buffer。<br>3.加大join buffer。</p>
 
       
 
@@ -210,6 +202,14 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JOIN</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
         		</li>
       		
 		</ul>
@@ -265,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://lixiaoqiu.com/2018/09/09/SQL BASIC/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://lixiaoqiu.com/2018/09/17/MySQL-JOIN 优化/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/17/MySQL-JOIN 优化/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MySQL | JOIN 优化
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/06/拓维的前台日记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">拓维的前台笔记</div>
+    <a href="/2018/09/09/SQL BASIC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL BASIC</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -306,8 +297,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://lixiaoqiu.com/2018/09/09/SQL BASIC/", 
-    sourceId: "SQL BASIC",
+    url: "http://lixiaoqiu.com/2018/09/17/MySQL-JOIN 优化/", 
+    sourceId: "MySQL-JOIN 优化",
     productKey: "7f1054413ca74cc586469906e7a06d50",
     target: "cloud-tie-wrapper"
   };

@@ -6,22 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://lixiaoqiu.com">
-  <title>SQL BASIC | 李小球</title>
+  <title>Tag: 优化 | 李小球</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Execution Oeder of SELECT">
-<meta name="keywords" content="生,SQL,数据库">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SQL BASIC">
-<meta property="og:url" content="http://lixiaoqiu.com/2018/09/09/SQL BASIC/index.html">
+  <meta name="description" content="I">
+<meta property="og:type" content="website">
+<meta property="og:title" content="李小球">
+<meta property="og:url" content="http://lixiaoqiu.com/tags/优化/index.html">
 <meta property="og:site_name" content="李小球">
-<meta property="og:description" content="Execution Oeder of SELECT">
+<meta property="og:description" content="I">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lixiaoqiu.com/assets/blogImg/2018-09-09.jpg">
-<meta property="og:updated_time" content="2018-09-09T05:18:33.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQL BASIC">
-<meta name="twitter:description" content="Execution Oeder of SELECT">
-<meta name="twitter:image" content="http://lixiaoqiu.com/assets/blogImg/2018-09-09.jpg">
+<meta name="twitter:title" content="李小球">
+<meta name="twitter:description" content="I">
   
     <link rel="alternative" href="/atom.xml" title="李小球" type="application/atom+xml">
   
@@ -155,47 +151,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SQL BASIC" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      SQL BASIC
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/09/17/MySQL-JOIN 优化/" class="archive-article-date">
+  	<time datetime="2018-09-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-17</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/09/17/MySQL-JOIN 优化/">MySQL | JOIN 优化</a>
     </h1>
   
 
-        
-        <a href="/2018/09/09/SQL BASIC/" class="archive-article-date">
-  	<time datetime="2018-09-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/blogImg/2018-09-09.jpg"></p>
-<h2 id="Execution-Oeder-of-SELECT"><a href="#Execution-Oeder-of-SELECT" class="headerlink" title="Execution Oeder of SELECT"></a>Execution Oeder of SELECT</h2><a id="more"></a>
-<p>Only you are familar enough with the execution order of a select statemrnt, you can optimize it.<br><strong>FROM-&gt;ON-&gt;OUTER-&gt;WHERE-&gt;GROUP BY-&gt;HAVING-&gt;SELECT-&gt;DISTINCT-&gt;ORDER BY-&gt;LIMIT</strong></p>
-<h2 id="KEYWORDS"><a href="#KEYWORDS" class="headerlink" title="KEYWORDS"></a>KEYWORDS</h2><p><strong>FROM</strong><br>The nature of the from clause is Cartesian Product. In sql, it is also called JOIN.join is the first thing to happen. JOIN are devided into INNER JOIN and OUTER JOIN. INNER JOIN has three ways of writing. They are functionally equivalent,  but INNER JOIN can be a bit clearer to read,  especially if the query has other join types included in it.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM table1, table2</span><br><span class="line">FROM table1 JOIN table2</span><br><span class="line">FROM table1 INNER JOIN table2</span><br></pre></td></tr></table></figure></p>
-<p><strong>ON</strong><br>ON clause is a Filter after JOIN operation, It can  be understood as connection condition also.  After JOIN operation, ON clause execute.<br>For example:<br><code>SELECT * FROM products INNER JOIN categories ON products. category_id = categories. category_id</code><br>it means categories table and products table do carttesian product operation, get a new table called base table, Then select records with the same category_id as the result. </p>
-<p><strong>OUTER</strong><br>OUTER is a hidden keyword.<br>For example:<br><code>SELECT * FROM products LEFT JOIN categories ON products. category_id = categories. category_id</code><br>When using an OUTER JOIN(OUTER JOIN not OUTER),  the outer operation will be executed after the on operation is completed.<br>So, What dose outer mean?<br>First:OUTER JOIN are devide into LEFT JOIN &amp;&amp; RIGHT JOIN &amp;&amp; FULL JOIN.<br>second:FULL JOIN means both use LEFT JOIN AND RIGHT JOIN.<br>When useing LEFT JOIN as above, Will return a temporary table after the on operation. The database manager compares the temporary table with the left table,  and adds the records in the left table but not in the new table(filtered by the on operation) to the new table,  and finally return the completed new table as the result. This completion process is called OUTER. </p>
-<p><strong>WHERE</strong><br>The WHERE clause is used to filter the results from a SELECT,  INSERT,  UPDATE,  or DELETE statement.<br>Where and on is also a row-filter, But ON is more than WHERE to execute first, and ON can only be used to JOIN tables(FROM clause);</p>
-<p><strong>GROUP BY</strong><br>GROUP BY clause means group data, rows with the same value in the columns specified by the ‘BY’ keyword will be grouped into a group, ‘BY’ can specify multiple columns.<br>RULE: <strong> The columns specified by select should either be included after the Group By statement as the basis for grouping, or it should be included in the aggregate function. </strong><br>For example:<br><code>SELECT MAX(salary) , dept_id FROM employees GROUP BY dept_id</code><br>it means:Divide the rows with the same dept_id value into one group,  then use the MAX() function to find the row with the largest value of ‘salary’ for each group as the result. </p>
-<p><strong>HAVING</strong><br>If you want to filter the data after the GROUP BY clause,  you can use the HAVING clause.<br>For example:<br><code>select MAX(salary) s , dept_id FROM employees GROUP BY dept_id HAVING s &gt; 62000</code></p>
-<p><strong>SELECT</strong><br>Contrary to ‘ON’, ‘WHERE’, ‘HAVING’, SELECT is a projection operation. SELECT clause can filter out unused columns. </p>
-<p><strong>DISTINCT</strong><br>DISTINCT clause is used to remove duplicates from the result set of a SELECT statement.<br>DISTINCT can specify multiple columns. </p>
-<p><strong>IN</strong><br>IN clause is used to help reduce the need for multiple OR conditions in a SELECT,  INSERT,  UPDATE,  or DELETE statement. </p>
-<p><a href="https://www.techonthenet.com/sql/from_ddl.php" target="_blank" rel="noopener">table&amp;data</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,113 +196,31 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JOIN</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://lixiaoqiu.com/2018/09/09/SQL BASIC/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/09/17/MySQL-JOIN 优化/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MySQL | JOIN 优化
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/08/06/拓维的前台日记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">拓维的前台笔记</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://lixiaoqiu.com/2018/09/09/SQL BASIC/", 
-    sourceId: "SQL BASIC",
-    productKey: "7f1054413ca74cc586469906e7a06d50",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -340,9 +243,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
