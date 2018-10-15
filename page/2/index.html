@@ -153,6 +153,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-位运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/31/位运算/">位运算</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/31/位运算/" class="archive-article-date">
+  	<time datetime="2018-01-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>个人觉得位运算的题目很脑残，因为我可能一辈子也不会在项目中使用位运算</p>
+<h2 id="1、基础并且很冷门的知识"><a href="#1、基础并且很冷门的知识" class="headerlink" title="1、基础并且很冷门的知识"></a>1、基础并且很冷门的知识</h2><p>1、左移 &lt;&lt; 就是字面意思，高位舍弃，低位补零<br>2、无符号右移 &gt;&gt;&gt;  与左移相对，地位舍弃，高位补零<br>3、右移 &gt;&gt; 准确的说是有符号右移，低位补零，高位补符号位的值</p>
+<h2 id="2、一些小技巧"><a href="#2、一些小技巧" class="headerlink" title="2、一些小技巧"></a>2、一些小技巧</h2><ol>
+<li><code>1111...111</code>    ,   <strong> -1 </strong> 或者 <strong> ~0 </strong><br>那么这是怎么来的呢？计算机用补码表示数字，-1的原码是1000…0001，负数的话，源码取反加一后得到补码111111111…（通过补码求原码也是这样，符号位不变，其他位取反再加一）</li>
+<li><code>使右边的前i位清零</code>   右移i位再左移i位</li>
+<li><code>0000...111</code>  , <strong> (1&lt;&lt;i)-1 </strong>    ,   i个1</li>
+<li><code>奇数位为1</code> , <strong> 0xAAAAAAAA </strong></li>
+<li><code>偶数位为1</code> , <strong> 0x55555555 </strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">位运算</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">bit</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/31/位运算/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-算法-根据两种遍历序列还原二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -772,88 +847,9 @@
 
 
   
-    <article id="post-Ironrhino第一次总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/13/Ironrhino第一次总结/">Ironrhino   |   第一次总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/13/Ironrhino第一次总结/" class="archive-article-date">
-  	<time datetime="2017-07-13T14:30:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=30967310&auto=0&height=66"></iframe><br><br></p>
-<h2 id="技能-amp-amp-理论"><a href="#技能-amp-amp-理论" class="headerlink" title="技能 &amp;&amp; 理论"></a>技能 &amp;&amp; 理论</h2><ul>
-<li><strong> 一定要读源码！！！ </strong></li>
-</ul>
-<p>这种没有文档的框架学习的唯一办法好像就是配合demo读源码了吧，学SSH的时候一直是看视频，对源码莫名恐惧。很感谢这个受众小，没文档，更别谈教学视频的框架，让我只能硬着头皮去看源代码，其实没那么难。</p>
-<ul>
-<li><strong> 一定要要抓包分析请求！！！ </strong></li>
-</ul>
-<p>能知道页面是怎么跳来跳去的，数据是怎么传来传去的。<br>配合着我那学了几天的SSH总算是有点开窍了，特此发文纪念 -_-</p>
-<ul>
-<li><strong> 初始的登录页面写在哪里？？为什么新建的项目里面找不到这个文件 </strong></li>
-</ul>
-<p>好吧，我以为自己重写一个<em>LoginAction </em>就好了，然而事实并非如此。为了写博客我刚又看了半个小时源码，但是失败了，源码的<code>LoginAction</code>有个注解指到了<strong>Spring的配置文件</strong>，然后我就蒙了。</p>
-<p>但是想要知道<strong>login页面</strong>在哪或者想把登录页面改成自己的页面很简单<br>首先在源码里面 <code>Ctrl + Shift + R</code><br>输入login，就能找到LoginAction的代码和<strong>login.ftl  的位置 </strong><br>那只要在自己的项目相应的包（没有就自己加）下面添加和源码同名的login.ftl文件就行了<br>简单的理解就是覆盖源码相对应的文件<br>但是<code>LoginAction</code>并不能被覆盖！！！推测是要改配置文件才行。<br><strong> 其实是可以覆盖的。。。覆盖原则是同包同名 </strong><br><strong> LoginAction  是放在 <code>org.ironrhino.core.security.action</code> 而不是<code>com.projectname.action</code> </strong><br><strong> @Order(Ordered.HIGHEST_PRECEDENCE) Spring注解可以设置同名类的指向优先级</strong></p>
-<h2 id="freemarker"><a href="#freemarker" class="headerlink" title="freemarker"></a>freemarker</h2>
-        
-          <a class="article-more-a" href="/2017/07/13/Ironrhino第一次总结/#more">open it >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ironrhino</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/13/Ironrhino第一次总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -943,50 +939,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JOIN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态代理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">初始化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">加载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">执行流程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
@@ -1007,27 +959,51 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+                <a href="javascript:void(0)" class="js-tag color5">ironrhino</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bit</a>
+                <a href="javascript:void(0)" class="js-tag color1">MYSQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异常</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+                <a href="javascript:void(0)" class="js-tag color3">索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">初始化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">加载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">执行流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">生命周期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JOIN</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1039,7 +1015,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">异常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">地区展示</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1056,6 +1052,34 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">高度自适应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">线性时间排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">非比较排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,26 +1104,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">N后问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉树还原</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">线性时间排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">非比较排序</a>
               </li>
             
             <div class="clearfix"></div>
